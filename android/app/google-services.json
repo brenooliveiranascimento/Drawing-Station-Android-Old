@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "681103812166",
+    "project_id": "drawning-station",
+    "storage_bucket": "drawning-station.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:681103812166:android:54bfd5aa15b3a884aecc47",
+        "android_client_info": {
+          "package_name": "com.drawingstation"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "681103812166-356vc7lb6oju8v421b1gonoucpp9qmnr.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAkI5e71DKpFyRIORTKL7M0yWE4N8CcU60"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "681103812166-356vc7lb6oju8v421b1gonoucpp9qmnr.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
