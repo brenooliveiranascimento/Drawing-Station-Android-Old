@@ -5,6 +5,7 @@ import firestore from '@react-native-firebase/firestore';
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import {AuthContext} from '../../Contexts/index'
 import UserArea from "../../components/UserArea/UserArea";
+import SelectDifiulty from "../../components/SelectDifiulty/SelectDificulty";
 
 class Home extends React.Component {
   static contextType = AuthContext;
@@ -26,6 +27,7 @@ class Home extends React.Component {
       <BackGround
       source={require('../../assets/BackgroundDesfoque.png')}>
         <UserArea/>
+        <SelectDifiulty/>
         {
           exerciceData.basics.map((exercice) => (
             <Text>{exercice.name}</Text>
