@@ -1,8 +1,8 @@
 import styled from 'styled-components/native'
 
 export const Card = styled.TouchableOpacity`
-  width: 120px;
-  height: 120px;
+  width: 140px;
+  height: 140px;
   align-items: center;
   justify-content: center;
   border-radius: 7px;
@@ -13,13 +13,13 @@ export const Card = styled.TouchableOpacity`
 `;
 
 export const CardImage = styled.Image`
-  width: 100px;
-  height: 100px;
+  width: 110px;
+  height: 110px;
   border-radius:7px;
   opacity: 100;
   position: absolute;
   align-self: center;
-  margin-top: 20px;
+  margin-top: 25px;
 `;
 
 export const CartText = styled.Text`

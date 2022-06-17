@@ -180,15 +180,21 @@ export default function AuthProvider({children}) {
           inter: 0,
           avan: 0,
           Basic: 0,
-          degR: 0,
-          ball: 0,
+          Degrade: 0,
+          Bola: 0,
           apple: 0,
-          rose: 0,
+          Rosa: 0,
           blueRose: 0,
           all: 0,
-          petal: 0,
+          Pétala: 0,
           frase: '',
           perfil: null,
+          balloom:0,
+          terry:0,
+          hulkBUster:0,
+          shortHair:0,
+          longHair:0,
+          stephenHawking:0
         };
         await firestore()
           .collection('users')
