@@ -8,6 +8,12 @@ export const Background = styled.ImageBackground`
   justify-content: center;
 `;
 
+export const BackgroundExercice = styled.ImageBackground`
+  flex: 1;
+  height: 100%;
+  width: 100%;
+`;
+
 export const ImageLogo = styled.Image`
   height: 100px;
   width: 300px;
@@ -130,4 +136,10 @@ export const BtnFinalizar = styled.TouchableOpacity`
 export const ConcordTerms = styled.TouchableOpacity`
   width: 20px;
   height: 20px;
+`;
+
+export const TextBase = styled.Text`
+  color: white;
+  font-weight: 500;
+  font-size: 18px;
 `;
