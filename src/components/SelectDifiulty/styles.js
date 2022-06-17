@@ -11,15 +11,17 @@ export const BtnContainer = styled.View`
 export const BtnDificulty = styled.TouchableOpacity`
   width: 100px;
   height: auto;
-  padding: 10px;
+  padding: 5px;
   align-items: center;
   justify-content: center;
   border-bottom-width: 1px;
-  border-radius: 7px;
   border-color: white;
-  background-color: rgba(0,0,0,0.3);
+  background-color: ${({dificulty, nowDificulty}) => dificulty !== nowDificulty ? "rgba(0,0,0,0.3)" : "rgba(200,30,30,0.4)"};
+  border-top-left-radius: 7px ;
+  border-top-right-radius: 7px ;
 `;
 
 export const TextBtn = styled.Text`
   color: white;
+  font-size: 14px;
 `;
