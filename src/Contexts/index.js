@@ -12,6 +12,7 @@ export default function AuthProvider({children}) {
   const [loading, setLoading] = useState(true);
   const {callAnimation} = useContext(AnimationContext);
   const [exerciceData, setExercicesData] = useState({});
+  const [difiuldade, setDificuldade] = useState('');
 
   useEffect(() => {
     const loadNowUser = async () => {
@@ -274,7 +275,9 @@ export default function AuthProvider({children}) {
         loading,
         signOut,
         updateProgress,
-        exerciceData
+        exerciceData,
+        difiuldade,
+        setDificuldade
       }}>
       {children}
     </AuthContext.Provider>

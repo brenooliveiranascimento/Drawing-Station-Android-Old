@@ -16,7 +16,7 @@ export const BtnDificulty = styled.TouchableOpacity`
   justify-content: center;
   border-bottom-width: 1px;
   border-color: white;
-  background-color: ${({dificulty, nowDificulty}) => dificulty === nowDificulty ? "rgba(0,0,0,0.3)" : "rgba(0,0,0,0.7)"};
+  background-color: ${({dificulty, nowDificulty}) => dificulty !== nowDificulty ? "rgba(0,0,0,0.3)" : "rgba(200,30,30,0.4)"};
   border-top-left-radius: 7px ;
   border-top-right-radius: 7px ;
 `;
