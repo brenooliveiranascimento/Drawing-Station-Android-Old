@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import React, {createContext, useState, useEffect, useContext} from 'react';
 import firestore from '@react-native-firebase/firestore';
 import auth from '@react-native-firebase/auth';

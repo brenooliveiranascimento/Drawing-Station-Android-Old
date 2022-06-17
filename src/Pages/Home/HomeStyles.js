@@ -5,3 +5,12 @@ export const BackGround = styled.ImageBackground `
   width:100%;
   height: 100%;
 `;
+
+export const CardsContainer = styled.View`
+  flex-direction: row;
+  flex-wrap:wrap;
+  width: 100%;
+  padding: 20px;
+  justify-content: space-around;
+  align-items: center;
+`;

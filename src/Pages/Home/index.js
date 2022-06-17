@@ -1,9 +1,10 @@
 import React from "react";
-import { Text } from 'react-native';
-import { BackGround } from "./HomeStyles";
+import {ScrollView} from 'react-native'
+import { BackGround, CardsContainer } from "./HomeStyles";
 import {AuthContext} from '../../Contexts/index'
 import UserArea from "../../components/UserArea/UserArea";
 import SelectDifiulty from "../../components/SelectDifiulty/SelectDificulty";
+import CardExercices from "../../components/CardExercices/CardExercices";
 
 class Home extends React.Component {
   static contextType = AuthContext;
@@ -15,10 +16,6 @@ class Home extends React.Component {
     }
   }
 
-  componentDidMount() {
-    console.log(this.context.user)
-  }
-
   render() {
     const {exerciceData} = this.context;
     return (
@@ -26,11 +23,17 @@ class Home extends React.Component {
       source={require('../../assets/BackgroundDesfoque.png')}>
         <UserArea/>
         <SelectDifiulty/>
-        {
-          exerciceData.basics.map((exercice) => (
-            <Text key={exercice.name}>{exercice.name}</Text>
-          ))
-        }
+        <ScrollView>
+          <CardsContainer>
+              {
+              exerciceData.basics.map((exercice) => (
+                <CardExercices 
+                  cardInf={exercice}
+                  key={exercice.name}/>
+              ))
+              }
+          </CardsContainer>
+        </ScrollView>
       </BackGround>
     )
   }
