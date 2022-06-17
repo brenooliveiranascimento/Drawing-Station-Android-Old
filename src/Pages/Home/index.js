@@ -1,8 +1,6 @@
 import React from "react";
-import { View, Text, ImageBackground } from 'react-native';
+import { Text } from 'react-native';
 import { BackGround } from "./HomeStyles";
-import firestore from '@react-native-firebase/firestore';
-import AsyncStorage from "@react-native-async-storage/async-storage";
 import {AuthContext} from '../../Contexts/index'
 import UserArea from "../../components/UserArea/UserArea";
 import SelectDifiulty from "../../components/SelectDifiulty/SelectDificulty";
@@ -30,7 +28,7 @@ class Home extends React.Component {
         <SelectDifiulty/>
         {
           exerciceData.basics.map((exercice) => (
-            <Text>{exercice.name}</Text>
+            <Text key={exercice.name}>{exercice.name}</Text>
           ))
         }
       </BackGround>
