@@ -1,13 +1,10 @@
 import React from 'react';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
-import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
-import {useNavigation} from '@react-navigation/native';
 import Home from '../Pages/Home/index';
+import Exercicios from '../Pages/Exercicios/Exercicios';
 
 export default function AppRoutes() {
   const Stack = createNativeStackNavigator();
-  const Tabs = createBottomTabNavigator();
-  const navigation = useNavigation();
 
   return (
     <Stack.Navigator>
@@ -17,6 +14,14 @@ export default function AppRoutes() {
         }}
         name="Home"
         component={Home}
+      />
+
+      <Stack.Screen
+        options={{
+          headerShown: false,
+        }}
+        name="Exercicios"
+        component={Exercicios}
       />
     </Stack.Navigator>
   );

@@ -6,12 +6,13 @@ import Icon from 'react-native-vector-icons/Feather'
 export default class UserArea extends Component {
   static contextType = AuthContext
  render(){
-   const {user, exerciceData} = this.context
+   const {user, exerciceData, signOut} = this.context
   return (
     <UserContainer>
       <HelloUser>Olá {user.name}</HelloUser>
       <PaitingTime>Hora de pintar!</PaitingTime>
-      <BtnSignOut><PaitingTime>Sair</PaitingTime></BtnSignOut>
+      <BtnSignOut
+      onPress={signOut}><PaitingTime>Sair</PaitingTime></BtnSignOut>
       <ProgressContainer>
         <Icon color={'white'} size={18} name='activity'/>
         <ProgressText>Seu progresso atual é {user.all}/{exerciceData.basics.length}</ProgressText>

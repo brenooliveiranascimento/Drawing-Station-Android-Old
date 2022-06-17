@@ -1,39 +1,34 @@
-import React from "react";
-import { Text } from 'react-native';
-import { BackGround } from "./HomeStyles";
+import React, {useContext} from "react";
+import {ScrollView} from 'react-native'
+import { BackGround, CardsContainer } from "./HomeStyles";
 import {AuthContext} from '../../Contexts/index'
 import UserArea from "../../components/UserArea/UserArea";
 import SelectDifiulty from "../../components/SelectDifiulty/SelectDificulty";
+import CardExercices from "../../components/CardExercices/CardExercices";
+import { useNavigation } from "@react-navigation/native";
 
-class Home extends React.Component {
-  static contextType = AuthContext;
-  constructor() {
-    super()
-
-    this.state = {
-      exercices: []
-    }
-  }
-
-  componentDidMount() {
-    console.log(this.context.user)
-  }
-
-  render() {
-    const {exerciceData} = this.context;
+function Home(){
+  const {exerciceData} = useContext(AuthContext);
+  const navigation = useNavigation();
     return (
       <BackGround
       source={require('../../assets/BackgroundDesfoque.png')}>
         <UserArea/>
         <SelectDifiulty/>
-        {
-          exerciceData.basics.map((exercice) => (
-            <Text key={exercice.name}>{exercice.name}</Text>
-          ))
-        }
+        <ScrollView>
+          <CardsContainer>
+              {
+              exerciceData.basics.map((exercice) => (
+                <CardExercices
+                  navegador={navigation}
+                  cardInf={exercice}
+                  key={exercice.name}/>
+              ))
+              }
+          </CardsContainer>
+        </ScrollView>
       </BackGround>
     )
   }
-}
 
 export default Home

@@ -41,21 +41,6 @@ export default function AuthRoutes() {
         component={Instagram}
       />
 
-      <Stack.Screen
-        options={{
-          headerShown: false,
-        }}
-        name="termos"
-        component={Termos}
-      />
-
-      <Stack.Screen
-        options={{
-          headerShown: false,
-        }}
-        name="eu"
-        component={Eu}
-      />
     </Stack.Navigator>
   );
 }
