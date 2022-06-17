@@ -1,6 +1,6 @@
 import React from "react";
 import { View, Text, ImageBackground } from 'react-native';
-import { BackGround } from "../StylesGerais/StylesGerais";
+import { BackGround } from "./HomeStyles";
 import firestore from '@react-native-firebase/firestore';
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import {AuthContext} from '../../Contexts/index'

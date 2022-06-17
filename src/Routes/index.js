@@ -3,17 +3,17 @@ import AuthRoutes from './Auth.routes';
 import { AuthContext } from '../Contexts';
 import LoadingIndicator from '../components/LoadingIndicator';
 import AppRoutes from './App.routes';
-import { BackGround } from '../Pages/StylesGerais/StylesGerais';
+import { Background } from '../StylesGerais';
 
 export default function Routes() {
   const { user, loading } = useContext(AuthContext)
   if(loading) {
     return(
-      <BackGround
+      <Background
         source={require("../assets/BackgroundDesfoque.png")}
         >
         <LoadingIndicator/>
-      </BackGround>
+      </Background>
     )
   }
  return (
