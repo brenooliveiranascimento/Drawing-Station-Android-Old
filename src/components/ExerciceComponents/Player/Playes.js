@@ -14,10 +14,6 @@ class PlayerAula extends React.Component {
   }
   static contextType = AuthContext;
 
-  componentDidMount() {
-    console.log(this.context.exerciceSelected.video);
-  }
-
   setLoading() {
     this.setState({
       loading:false
@@ -35,10 +31,10 @@ class PlayerAula extends React.Component {
                 style={{position:'absolute', alignSelf:'center', marginTop:100}}
                 size={30} 
                 color="white"/>
-                <TextBase
-                  style={{position:'absolute', alignSelf:'center', marginTop:140}}>
-                  O VIdeo está carregando!
-                </TextBase>
+              <TextBase
+                style={{position:'absolute', alignSelf:'center', marginTop:140}}>
+                O VIdeo está carregando!
+              </TextBase>
             </>
           )
         }
