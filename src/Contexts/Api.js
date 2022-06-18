@@ -5,9 +5,6 @@ import firestore from '@react-native-firebase/firestore'
 
 export default function ExercicioProvider({children}){
 
-    const [marca, setMarca] = useState('fabber');
-
-
 const [degradeVermelho,setDegradeVermelho] = useState([
     {
     id:1,    
