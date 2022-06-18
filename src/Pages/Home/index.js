@@ -6,27 +6,27 @@ import UserArea from "../../components/UserArea/UserArea";
 // import SelectDifiulty from "../../components/SelectDifiulty/SelectDificulty";
 import CardExercices from "../../components/CardExercices/CardExercices";
 import { useNavigation } from "@react-navigation/native";
-import { Divisoria } from "../../StylesGerais";
+import CardRoute from "../../components/CardRoute";
 
 function Home(){
   const {exerciceData} = useContext(AuthContext);
   const navigation = useNavigation();
     return (
       <BackGround
-      source={require('../../assets/backgrounddegraDesfoque1.jpg')}>
+      source={require('../../assets/BackgroundDesfoque.png')}>
         <UserArea/>
         {/* <SelectDifiulty/> */}
-        <Divisoria/>
-        <ScrollView>
+        <ScrollView style={{marginTop:15}}>
           <CardsContainer>
-              {
+              {/* {
               exerciceData.basics.map((exercice) => (
                 <CardExercices
                   navegador={navigation}
                   cardInf={exercice}
                   key={exercice.name}/>
               ))
-              }
+              } */}
+              <CardRoute/>
           </CardsContainer>
         </ScrollView>
       </BackGround>

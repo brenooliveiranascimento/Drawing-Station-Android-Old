@@ -27,19 +27,24 @@ export const BtnSignOut = styled.TouchableOpacity`
   padding: 5px;
   align-items: center;
   justify-content: center;
-  background-color: rgba(255, 143, 0, 0.4);
-  border-width: 0px;
+  background-color: none;
+  border-width: 1px;
   margin-top: 10px;
   border-color: white;
   border-radius: 7px;
 `;
 
 export const ProgressContainer = styled.View`
-  flex-direction: row;
-  width: auto;
+  padding: 15px;
+  width: 100%;
+  height: auto;
   align-items: center;
-  justify-content: center;
-  margin-top: 10px;
+  justify-content: flex-start;
+  margin-top: 20px;
+  background-color: rgba(128,128,128,0.3);
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  border-bottom-left-radius: 20px;
 `;
 
 export const ProgressText = styled.Text`
@@ -48,3 +53,13 @@ export const ProgressText = styled.Text`
   color: white;
 `;
 
+export const ContainerRow = styled.View`
+  flex-direction: row;
+  align-self: flex-start;
+`;
+
+export const TextMessage = styled.Text `
+  color: #ddd;
+  align-self: flex-start;
+  margin-top: 10px;
+`

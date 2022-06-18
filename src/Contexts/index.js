@@ -15,6 +15,17 @@ export default function AuthProvider({children}) {
   const [exerciceData, setExercicesData] = useState({});
   const [difiuldade, setDificuldade] = useState('');
   const [exerciceSelected, setExerciceSelected] = useState({});
+  const [message, setMessage] = useState('');
+
+  const updateMessage = async () => {
+    firestore() 
+      .collection('Avisos')
+      .doc('Aviso1')
+      .get()
+      .then((snapshot) => {
+        setMessage(snapshot.data().message);
+      })
+  }
 
   const updateVersion = async () => {
     await firestore()
@@ -57,7 +68,8 @@ export default function AuthProvider({children}) {
   }
 
   useEffect(() => {
-    getAtualizacao()
+    getAtualizacao();
+    updateMessage();
     const loadNowUser = async () => {
       let usuarioAtual = await AsyncStorage.getItem('now_user');
       if (usuarioAtual) {
@@ -82,16 +94,17 @@ export default function AuthProvider({children}) {
     await AsyncStorage.setItem(key, JSON.stringify(data));
   }
 
-  const [pilars, setPilars] = useState({
+  const pilares = {
     items:[
-      {name:'materiais', id:'Materiais'},
-      {name:'Praticando esboço', id:'Esboço'},
-      {name:'Praticando pintura', id:'Pintura'}
+      {name:'Materiais', id:'Materiais', details:'Materiais recomendados'},
+      {name:'Praticando esboço', id:'Esboço', details:'Vamos praticar um pouco de esboço?'},
+      {name:'Praticando pintura', id:'Pintura', details:'Hora de por a mão na massa!!'},
+      {name:'FeedBack', id:'FeedBack', details:'Mande sujestões e criticas'},
     ]
-  })
+  }
 
-  const updatePilar = async () => await firestore().collection('pilares').doc('inf').set(pilars);
-  updatePilar();
+  // const updatePilar = async () => await firestore().collection('pilares').doc('inf').set(pilars);
+  // updatePilar();
 
   // const [dataEx, setData] = useState({
   //   basics:[
@@ -338,6 +351,8 @@ export default function AuthProvider({children}) {
         setDificuldade,
         setExerciceSelected,
         exerciceSelected,
+        message,
+        pilares
       }}>
       {children}
     </AuthContext.Provider>
