@@ -1,12 +1,10 @@
+/* eslint-disable react/prop-types */
 import React, { useState, createContext } from "react";
 export const ExerContext = createContext()
 import { View, Text } from 'react-native';
 import firestore from '@react-native-firebase/firestore'
 
 export default function ExercicioProvider({children}){
-
-    const [marca, setMarca] = useState('fabber');
-
 
 const [degradeVermelho,setDegradeVermelho] = useState([
     {
