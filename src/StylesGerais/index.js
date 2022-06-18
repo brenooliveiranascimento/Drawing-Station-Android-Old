@@ -143,3 +143,9 @@ export const TextBase = styled.Text`
   font-weight: 500;
   font-size: 18px;
 `;
+
+export const Divisoria = styled.View`
+  width: 100%;
+  height:3px ;
+  background-color: rgba(0,0,0,0.4);
+`;

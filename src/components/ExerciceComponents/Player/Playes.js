@@ -39,7 +39,7 @@ class PlayerAula extends React.Component {
           )
         }
         <YoutubePlayer
-          height={300}
+          height={250}
           videoId={exerciceSelected.video}
           onReady={this.setLoading}
           initialPlayerParams={{
