@@ -60,8 +60,8 @@ class CardExercices extends Component {
         activeOpacity={0.8}>
           <CartText style={{bottom:25}}> {cardInf.name}</CartText>
           <CartText style={{bottom:5}}> <Icon size={16} name={!user[cardInf.name] ? 'circle' : 'check-circle'}/> </CartText>
+          <CardImage source={{uri:cardInf.url}}/>
       </Card>
-      <CardImage source={{uri:cardInf.url}}/>
     </View>
    );
  }

@@ -13,7 +13,7 @@ function Home(){
   const navigation = useNavigation();
     return (
       <BackGround
-      source={require('../../assets/BackgroundDesfoque.png')}>
+      source={require('../../assets/backgrounddegraDesfoque1.jpg')}>
         <UserArea/>
         {/* <SelectDifiulty/> */}
         <Divisoria/>

@@ -27,8 +27,8 @@ export const BtnSignOut = styled.TouchableOpacity`
   padding: 5px;
   align-items: center;
   justify-content: center;
-  background-color: none;
-  border-width: 1px;
+  background-color: rgba(255, 143, 0, 0.4);
+  border-width: 0px;
   margin-top: 10px;
   border-color: white;
   border-radius: 7px;
