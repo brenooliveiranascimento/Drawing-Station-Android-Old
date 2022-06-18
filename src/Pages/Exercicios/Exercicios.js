@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { View } from 'react-native';
 import { AuthContext } from '../../Contexts';
-import { BackgroundExercice } from '../../StylesGerais';
+import { BackgroundExercice, Divisoria } from '../../StylesGerais';
 import Header from '../../components/Header/headerBack'
 import PlayerAula from '../../components/ExerciceComponents/Player/Playes';
 import InfArae from '../../components/ExerciceComponents/InfArea/InfArea';
@@ -23,6 +23,7 @@ export default class Exercicios extends Component {
         <Header/>
         <PlayerAula/>
         <InfArae/>
+        <Divisoria/>
       </View>
     </BackgroundExercice>
    );
