@@ -8,6 +8,12 @@ export const Background = styled.ImageBackground`
   justify-content: center;
 `;
 
+export const BackgroundExercice = styled.ImageBackground`
+  flex: 1;
+  height: 100%;
+  width: 100%;
+`;
+
 export const ImageLogo = styled.Image`
   height: 100px;
   width: 300px;
@@ -116,7 +122,7 @@ export const LapisContainer = styled.View`
 `;
 
 export const BtnFinalizar = styled.TouchableOpacity`
-  width: 40%;
+  width: 80%;
   height: auto;
   border-radius: 5px;
   background-color: rgba(0, 0, 0, 0.4);
@@ -124,10 +130,23 @@ export const BtnFinalizar = styled.TouchableOpacity`
   justify-content: center;
   padding: 5px;
   flex-direction: row;
-  margin-top: 5px;
+  margin-top: 15px;
+  align-self: flex-start;
 `;
 
 export const ConcordTerms = styled.TouchableOpacity`
   width: 20px;
   height: 20px;
+`;
+
+export const TextBase = styled.Text`
+  color: white;
+  font-weight: 500;
+  font-size: 18px;
+`;
+
+export const Divisoria = styled.View`
+  width: 100%;
+  height:3px ;
+  background-color: rgba(0,0,0,0.4);
 `;

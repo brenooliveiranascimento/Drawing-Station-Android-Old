@@ -5,7 +5,7 @@ export const Card = styled.TouchableOpacity`
   height: 140px;
   align-items: center;
   justify-content: center;
-  border-radius: 7px;
+  border-radius: 20px;
   background-color: rgba(0,0,0,0.3);
   align-self: center;
   margin: 10px;

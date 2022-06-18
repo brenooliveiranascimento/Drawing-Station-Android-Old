@@ -16,7 +16,48 @@ export default function AuthProvider({children}) {
   const [difiuldade, setDificuldade] = useState('');
   const [exerciceSelected, setExerciceSelected] = useState({});
 
+  const updateVersion = async () => {
+    await firestore()
+    .collection('exercices')
+    .doc('dados')
+    .get()
+    .then((snapshot) => {
+      setExercicesData(snapshot.data());
+      updateStore(snapshot.data(), 'exercices_data');
+    }).catch((error) => {
+      console.log(error.message);
+    });
+  };
+
+  const updateVersionStore = async () => {
+    return await firestore()
+            .collection('Atualizacao')
+            .doc('basic')
+            .get()
+            .then( async(snapshot) => {
+              const numberOfVersion = snapshot.data().versoes.length
+              await AsyncStorage.setItem('version_code', JSON.stringify(numberOfVersion));
+            });
+  }
+
+  const getAtualizacao = async () => {
+    return await firestore()
+            .collection('Atualizacao')
+            .doc('basic')
+            .get()
+            .then( async (snapshot) => {
+              const numberOfVersion = snapshot.data().versoes.length
+              const nowVersion = await AsyncStorage.getItem('version_code');
+            if(numberOfVersion !== JSON.parse(nowVersion)) {
+              updateVersion();
+            }
+          }).catch((error) => {
+            console.log(error.message)
+          })
+  }
+
   useEffect(() => {
+    getAtualizacao()
     const loadNowUser = async () => {
       let usuarioAtual = await AsyncStorage.getItem('now_user');
       if (usuarioAtual) {
@@ -31,22 +72,13 @@ export default function AuthProvider({children}) {
         setExercicesData(JSON.parse(nowExercices));
         return;
       }
-      await firestore()
-      .collection('exercices')
-      .doc('dados')
-      .get()
-      .then((snapshot) => {
-        setExercicesData(snapshot.data());
-        nowUser(snapshot.data(), 'exercices_data');
-      }).catch((error) => {
-        console.log(error.message);
-      })
+      updateVersion();
     };
     loadExercices();
     loadNowUser();
   }, []);
 
-  async function nowUser(data, key) {
+  async function updateStore(data, key) {
     await AsyncStorage.setItem(key, JSON.stringify(data));
   }
 
@@ -183,7 +215,10 @@ export default function AuthProvider({children}) {
           Basic: 0,
           Degrade: 0,
           Bola: 0,
-          apple: 0,
+          Bola_azul:0,
+          Bola_verder:0,
+          Bola_amarela:0,
+          Maçã: 0,
           Rosa: 0,
           blueRose: 0,
           all: 0,
@@ -202,7 +237,8 @@ export default function AuthProvider({children}) {
           .doc(uid)
           .set(data)
           .then(() => {
-            nowUser(data, 'now_user');
+            updateVersionStore();
+            updateStore(data, 'now_user');
             setLogInVerify(true);
             setLoadingBtn(false);
             setTimeout(() => {
@@ -231,7 +267,8 @@ export default function AuthProvider({children}) {
           .get()
           .then(snapshot => {
             let data = snapshot.data();
-            nowUser(data, 'now_user');
+            updateVersionStore();
+            updateStore(data, 'now_user');
             setLogInVerify(true);
             setLoadingBtn(false);
             setTimeout(() => {
@@ -263,11 +300,13 @@ export default function AuthProvider({children}) {
       data.all = data.all + 1;
       getUserData.set(data);
       setUser(data);
+      updateStore(data, 'now_user')
     } else {
       data[exercicio] = 0;
       data.all = data.all - 1;
       getUserData.set(data);
       setUser(data);
+      updateStore(data, 'now_user')
     }
   };
 
