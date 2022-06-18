@@ -256,7 +256,6 @@ export default function AuthProvider({children}) {
   };
 
   const signIn = (email, password) => {
-    alert('dwaio')
     setLoadingBtn(true);
     auth()
       .signInWithEmailAndPassword(email, password)

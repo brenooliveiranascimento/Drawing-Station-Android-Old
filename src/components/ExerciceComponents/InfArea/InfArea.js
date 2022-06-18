@@ -3,6 +3,7 @@ import { BtnFinalizar, TextBase } from '../../../StylesGerais';
 import { AuthContext } from '../../../Contexts';
 import Icon from 'react-native-vector-icons/Feather';
 import { InfContainer, MaterialArea, MaterialText, Name } from './InfStyles';
+import MaterialAreaContainer from '../MaterialArea/MaterialArea';
 
 class InfArae extends React.Component {
   constructor() {
@@ -39,6 +40,9 @@ class InfArae extends React.Component {
             size={16}
             name={viewMaterial ? "arrow-up" : "arrow-down"}/>
         </MaterialArea>
+          {viewMaterial && (
+            <MaterialAreaContainer item={exerciceSelected}/>
+          )}
         <BtnFinalizar
           onPress={() => updateProgress(exerciceSelected.name)}>
           <TextBase>Finalizado</TextBase>

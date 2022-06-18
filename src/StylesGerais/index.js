@@ -130,7 +130,7 @@ export const BtnFinalizar = styled.TouchableOpacity`
   justify-content: center;
   padding: 5px;
   flex-direction: row;
-  margin-top: 5px;
+  margin-top: 15px;
 `;
 
 export const ConcordTerms = styled.TouchableOpacity`
