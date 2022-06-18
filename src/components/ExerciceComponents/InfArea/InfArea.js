@@ -22,7 +22,7 @@ class InfArae extends React.Component {
 
   static contextType = AuthContext
   render() {
-    const {exerciceSelected, updateProgress} = this.context;
+    const {exerciceSelected, updateProgress, user} = this.context;
     const {viewMaterial} = this.state;
     return (
       <InfContainer>
@@ -42,7 +42,11 @@ class InfArae extends React.Component {
         <BtnFinalizar
           onPress={() => updateProgress(exerciceSelected.name)}>
           <TextBase>Finalizado</TextBase>
-          <Icon style={{ marginTop:5, marginLeft:10}} size={17} color={'#fff'} name='circle'/>
+          <Icon 
+            style={{ marginTop:5, marginLeft:10}} 
+            size={17} 
+            color={'#fff'} 
+            name={!user[exerciceSelected.name] ? "circle" : "check-circle"}/>
         </BtnFinalizar>
       </InfContainer>
     );
