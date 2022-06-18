@@ -82,6 +82,17 @@ export default function AuthProvider({children}) {
     await AsyncStorage.setItem(key, JSON.stringify(data));
   }
 
+  const [pilars, setPilars] = useState({
+    items:[
+      {name:'materiais', id:'Materiais'},
+      {name:'Praticando esboço', id:'Esboço'},
+      {name:'Praticando pintura', id:'Pintura'}
+    ]
+  })
+
+  const updatePilar = async () => await firestore().collection('pilares').doc('inf').set(pilars);
+  updatePilar();
+
   // const [dataEx, setData] = useState({
   //   basics:[
   //     {

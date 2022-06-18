@@ -3,9 +3,10 @@ import {ScrollView} from 'react-native'
 import { BackGround, CardsContainer } from "./HomeStyles";
 import {AuthContext} from '../../Contexts/index'
 import UserArea from "../../components/UserArea/UserArea";
-import SelectDifiulty from "../../components/SelectDifiulty/SelectDificulty";
+// import SelectDifiulty from "../../components/SelectDifiulty/SelectDificulty";
 import CardExercices from "../../components/CardExercices/CardExercices";
 import { useNavigation } from "@react-navigation/native";
+import { Divisoria } from "../../StylesGerais";
 
 function Home(){
   const {exerciceData} = useContext(AuthContext);
@@ -14,7 +15,8 @@ function Home(){
       <BackGround
       source={require('../../assets/BackgroundDesfoque.png')}>
         <UserArea/>
-        <SelectDifiulty/>
+        {/* <SelectDifiulty/> */}
+        <Divisoria/>
         <ScrollView>
           <CardsContainer>
               {

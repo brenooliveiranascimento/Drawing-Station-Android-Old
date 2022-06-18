@@ -5,11 +5,13 @@ export const Card = styled.TouchableOpacity`
   height: 140px;
   align-items: center;
   justify-content: center;
-  border-radius: 20px;
   background-color: rgba(0,0,0,0.3);
   align-self: center;
   margin: 10px;
   z-index: 99;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  border-bottom-left-radius: 20px;
 `;
 
 export const CardImage = styled.Image`
