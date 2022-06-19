@@ -23,7 +23,7 @@ export default class CardRoute extends Component {
 
  render(){
    const {pilares, user, exerciceData} = this.context;
-   const calculePorcento = ( 100 / exerciceData.basics.length) * user.all
+   const calculeProgress = ( 100 / exerciceData.basics.length) * user.all
   return (
     <Container>
       {
@@ -41,9 +41,9 @@ export default class CardRoute extends Component {
               {pilar.id === 'Pintura' && (
                 <>
                   <ProgressBar/>
-                  <ProgressBarColored concludes={calculePorcento}/>
+                  <ProgressBarColored concludes={calculeProgress}/>
                   <ProgressInNumber>
-                    <PorcentText>{calculePorcento}%</PorcentText>
+                    <PorcentText>{calculeProgress}%</PorcentText>
                   </ProgressInNumber>
                </>
               )}
