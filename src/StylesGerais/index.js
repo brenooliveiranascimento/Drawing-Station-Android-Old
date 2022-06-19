@@ -146,7 +146,8 @@ export const TextBase = styled.Text`
 `;
 
 export const Divisoria = styled.View`
-  width: 100%;
-  height:3px ;
-  background-color: rgba(0,0,0,0.4);
+  width: 80%;
+  height:1px ;
+  background-color: #aaa;
+  align-self: center;
 `;

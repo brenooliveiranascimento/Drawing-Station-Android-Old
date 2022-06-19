@@ -14,31 +14,9 @@ class CardExercices extends Component {
       exercices:{}
     };
 
-    // this.getUserData = this.getUserData.bind(this)
     this.selectExercice = this.selectExercice.bind(this);
   }
   static contextType = AuthContext;
-
-  // função responsável por atualiar os check
-  // async getUserData() {
-  //   const {user} = this.context;
-  //   await firestore()
-  //   .collection('users')
-  //   .doc(user.uid)
-  //   .onSnapshot({
-  //     error: (error) => console.error(error),
-  //     next: (Snapshot) => {
-  //       console.log(Snapshot.data());
-  //       this.setState({
-  //         exercices: Snapshot.data(),
-  //       })
-  //     },
-  //   });
-  // }
-
-  // componentDidMount() {
-  //   this.getUserData();
-  // }
 
   selectExercice() {
     const {navegador, cardInf} = this.props;

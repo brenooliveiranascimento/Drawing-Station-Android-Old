@@ -9,7 +9,7 @@ export const BackGround = styled.ImageBackground`
 export const CardsContainer = styled.View`
   flex-direction: row;
   flex-wrap:wrap;
-  width: 100%;
+  width: auto;
   padding: 20px;
   justify-content: space-around;
   align-items: center;
