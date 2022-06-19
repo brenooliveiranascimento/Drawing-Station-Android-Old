@@ -21,7 +21,8 @@ function Home(){
         </ScrollView>
         <Modal 
           animationType="slide"
-          visible={showModal}>
+          visible={showModal}
+          transparent=''>
           <ModalComponent 
             updateModal={setShowModal}/>
         </Modal>

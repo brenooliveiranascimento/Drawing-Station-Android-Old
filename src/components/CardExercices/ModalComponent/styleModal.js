@@ -1,10 +1,25 @@
 import styled from 'styled-components/native';
 
+export const BackGround = styled.View`
+  flex: 1;
+  background-color: rgba(0,0,0,0.7);
+`;
+
 export const ModalContainer = styled.View`
   width: 80%;
   height: 70%;
   border-radius: 10px;
-  background-color: rgba(0,0,0,0.4);
+  background-color: rgba(90,30,50,0.9);
+  align-self: center;
+  margin-top: 10%;
+  padding: 10px;
+`;
+
+export const ModalHEaderBtn = styled.TouchableOpacity`
+  align-items: center;
+  justify-content: center;
+  width: auto;
+  height: auto;
 `;
 
 export const ModalHeader = styled.View`
@@ -14,12 +29,15 @@ export const ModalHeader = styled.View`
   align-items: flex-start;
 `;
 
-export const TextModal = styled.Tex`
-  font-size: 16px;
-  color: #ddd;
+export const TextModal = styled.Text`
+  font-size: 17px;
+  color: #aaa;
+  align-self: center;
+  margin-top: 10%;
 `;
 
-export const TextHEaderModal = styled`
+export const TextHeaderModal = styled.Text`
   font-size: 23px;
   color: #fff;
+  align-self: center;
 `;
