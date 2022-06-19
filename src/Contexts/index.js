@@ -96,10 +96,9 @@ export default function AuthProvider({children}) {
 
   const pilares = {
     items:[
-      {name:'Materiais', id:'Materiais', details:'Materiais recomendados'},
-      {name:'Praticando esboço', id:'Esboço', details:'Vamos praticar um pouco de esboço?'},
-      {name:'Praticando pintura', id:'Pintura', details:'Hora de por a mão na massa!!'},
-      {name:'FeedBack', id:'FeedBack', details:'Mande sujestões e criticas'},
+      {name:'Praticando pintura', id:'Pintura', details:'Hora de por a mão na massa!!', conclude:true},
+      {name:'Materiais', id:'Materiais', details:'Materiais recomendados', conclude:false},
+      {name:'Praticando esboço', id:'Esboço', details:'Vamos praticar um pouco de esboço?', conclude:false},
     ]
   }
 

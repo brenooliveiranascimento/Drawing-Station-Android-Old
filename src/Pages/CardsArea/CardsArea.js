@@ -1,16 +1,18 @@
 import React, { useContext } from 'react';
 import CardExercices from '../../components/CardExercices/CardExercices';
 import { AuthContext } from '../../Contexts';
-import { Background } from '../../StylesGerais';
 import { CardsContainer } from '../Home/HomeStyles';
 import { useNavigation } from '@react-navigation/native';
+import Header from '../../components/Header/headerBack';
+import { BackGround } from './CardsAreaSyles';
 
 function CardsArea() {
   const {exerciceData} = useContext(AuthContext);
   const navigation = useNavigation();
     return (
-      <Background
+      <BackGround
         source={require('../../assets/BackgroundDesfoque.png')}>
+          <Header/>
           <CardsContainer>
            {
               exerciceData.basics.map((exercice) => (
@@ -21,7 +23,7 @@ function CardsArea() {
               ))
               }
           </CardsContainer>
-      </Background>
+      </BackGround>
     )
   }
 

@@ -11,7 +11,8 @@ class CardExercices extends Component {
     super()
 
     this.state = {
-      exercices:{}
+      exercices:{},
+      showModal:true
     };
 
     this.selectExercice = this.selectExercice.bind(this);
