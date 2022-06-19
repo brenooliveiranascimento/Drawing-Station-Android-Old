@@ -70,9 +70,9 @@ export const PorcentText = styled.Text`
 `;
 
 export const ProgressBarColored = styled.View`
-  width: 60%;
+  width: ${({concludes}) => `${concludes}%`};
   height: 10px;
-  background-color: rgba(0,0,0,0.5);
+  background-color: rgba(100,0,100,0.5);
   border-radius: 30px;
   align-self: center;
   position: absolute;

@@ -27,7 +27,7 @@ class ModalComponent extends React.Component {
             Essa aréa ainda está em construção! mas volte aqui daqui algumas luas marujo!
           </TextModal>
           <TextModal>
-            Quer ficar por dentro das futuras atualizações? então me siga nas redes socias
+            Quer ficar por dentro das futuras atualizações? então me siga nas redes socia
           </TextModal>
         </ModalContainer>
       </BackGround>

@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
 import React, { Component } from 'react';
 import { AuthContext } from '../../Contexts';
-import { Card, Container, Details, NameOfRoute, ProgressArea} from './CarDStyles';
+import { Card, Container, Details, NameOfRoute, PorcentText, ProgressArea, ProgressBar, ProgressBarColored, ProgressInNumber} from './CarDStyles';
 
 export default class CardRoute extends Component {
   constructor() {
@@ -22,7 +22,9 @@ export default class CardRoute extends Component {
   }
 
  render(){
-   const {pilares} = this.context;
+   const {pilares, user, exerciceData} = this.context;
+   const calculePorcento = ( 100 / exerciceData.basics.length) * user.all
+   console.log(calculePorcento)
   return (
     <Container>
       {
@@ -36,11 +38,17 @@ export default class CardRoute extends Component {
             </NameOfRoute>
             <Details>{pilar.details}</Details>
             <ProgressArea>
-              {/* <ProgressBar/>
-              <ProgressBarColored/>
-              <ProgressInNumber>
-                <PorcentText>60%</PorcentText>
-              </ProgressInNumber> */}
+
+              {pilar.id === 'Pintura' && (
+                <>
+                <ProgressBar/>
+                <ProgressBarColored concludes={calculePorcento}/>
+                <ProgressInNumber>
+                  <PorcentText>{calculePorcento}%</PorcentText>
+                </ProgressInNumber>
+              </>
+              )}
+                
             </ProgressArea>
           </Card>
         ))

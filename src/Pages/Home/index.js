@@ -22,7 +22,7 @@ function Home(){
         <Modal 
           animationType="slide"
           visible={showModal}
-          transparent=''>
+          transparent>
           <ModalComponent 
             updateModal={setShowModal}/>
         </Modal>
