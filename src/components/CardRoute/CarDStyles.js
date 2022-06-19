@@ -13,12 +13,13 @@ export const Container = styled.View`
 export const Card = styled.TouchableOpacity`
   width: 45%;
   height: 150px;
-  background-color: rgba(0,0,0,0.4);
+  background-color: rgba(0,0,0,0.5);
   border-top-left-radius: 20px;
   border-top-right-radius: 20px;
   border-bottom-left-radius: 20px;
   margin-top: 10px;
   padding: 10px;
+  z-index: 99;
 `;
 
 export const NameOfRoute = styled.Text`
@@ -30,8 +31,9 @@ export const NameOfRoute = styled.Text`
 
 export const Details = styled.Text`
   font-size: 13px;
-  color: #aaa;
+  color: #ddd;
   margin-top: 10px;
+  font-weight: 500;
 `;
 
 export const ProgressArea = styled.View`
@@ -77,4 +79,16 @@ export const ProgressBarColored = styled.View`
   align-self: center;
   position: absolute;
   bottom: 7px;
+`;
+
+export const ImageOfCardRout = styled.Image `
+  position: absolute;
+  width: 38%;
+  height: 35%;
+  z-index: 0;
+  top: 5%;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  border-bottom-left-radius: 20px;
+  left: 2%;
 `;

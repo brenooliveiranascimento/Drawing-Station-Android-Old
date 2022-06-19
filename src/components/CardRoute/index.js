@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
 import React, { Component } from 'react';
 import { AuthContext } from '../../Contexts';
-import { Card, Container, Details, NameOfRoute, PorcentText, ProgressArea, ProgressBar, ProgressBarColored, ProgressInNumber} from './CarDStyles';
+import { Card, Container, Details, ImageOfCardRout, NameOfRoute, PorcentText, ProgressArea, ProgressBar, ProgressBarColored, ProgressInNumber} from './CarDStyles';
 
 export default class CardRoute extends Component {
   constructor() {
@@ -24,11 +24,11 @@ export default class CardRoute extends Component {
  render(){
    const {pilares, user, exerciceData} = this.context;
    const calculePorcento = ( 100 / exerciceData.basics.length) * user.all
-   console.log(calculePorcento)
   return (
     <Container>
       {
         pilares.items.map((pilar) => (
+          <>
           <Card
             onPress={() => this.verifyRoute(pilar)}
             activeOpacity={0.8} 
@@ -38,19 +38,26 @@ export default class CardRoute extends Component {
             </NameOfRoute>
             <Details>{pilar.details}</Details>
             <ProgressArea>
-
               {pilar.id === 'Pintura' && (
                 <>
-                <ProgressBar/>
-                <ProgressBarColored concludes={calculePorcento}/>
-                <ProgressInNumber>
-                  <PorcentText>{calculePorcento}%</PorcentText>
-                </ProgressInNumber>
-              </>
+                  <ProgressBar/>
+                  <ProgressBarColored concludes={calculePorcento}/>
+                  <ProgressInNumber>
+                    <PorcentText>{calculePorcento}%</PorcentText>
+                  </ProgressInNumber>
+               </>
               )}
                 
             </ProgressArea>
+
           </Card>
+          {
+            pilar.image && (
+            <ImageOfCardRout
+            source={{uri:pilar.image}}/>
+            )
+            }
+          </>
         ))
       }
     </Container>

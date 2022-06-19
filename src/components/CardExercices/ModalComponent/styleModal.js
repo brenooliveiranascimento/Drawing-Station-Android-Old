@@ -32,12 +32,12 @@ export const ModalHeader = styled.View`
 export const TextModal = styled.Text`
   font-size: 17px;
   color: #aaa;
-  align-self: center;
+  align-self: flex-start;
   margin-top: 10%;
 `;
 
 export const TextHeaderModal = styled.Text`
   font-size: 23px;
   color: #fff;
-  align-self: center;
+  align-self: flex-start;
 `;
