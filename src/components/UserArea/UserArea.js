@@ -8,6 +8,7 @@ export default class UserArea extends Component {
   static contextType = AuthContext
  render(){
    const {user, exerciceData, signOut, message} = this.context
+   const calculateTotalProgress = (100 / exerciceData.basics.length) * user.all
   return (
     <UserContainer>
       <HelloUser>Olá {user.name}</HelloUser>
@@ -17,7 +18,7 @@ export default class UserArea extends Component {
       <ProgressContainer>
         <ContainerRow>
           <Icon color={'white'} size={18} name='activity'/>
-          <ProgressText>Seu progresso atual é {user.all}/{exerciceData.basics.length}</ProgressText>
+          <ProgressText>Seu progresso atual é de {calculateTotalProgress}%</ProgressText>
         </ContainerRow>
         <TextMessage><TextBase style={{fontSize:16}}>Mensagem do ADM:</TextBase> {message}</TextMessage>
       </ProgressContainer>

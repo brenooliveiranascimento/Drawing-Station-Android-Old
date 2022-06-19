@@ -96,10 +96,9 @@ export default function AuthProvider({children}) {
 
   const pilares = {
     items:[
-      {name:'Materiais', id:'Materiais', details:'Materiais recomendados'},
-      {name:'Praticando esboço', id:'Esboço', details:'Vamos praticar um pouco de esboço?'},
-      {name:'Praticando pintura', id:'Pintura', details:'Hora de por a mão na massa!!'},
-      {name:'FeedBack', id:'FeedBack', details:'Mande sujestões e criticas'},
+      {name:'Praticando pintura', id:'Pintura', details:'Hora de por a mão na massa!!', conclude:true, image:'https://firebasestorage.googleapis.com/v0/b/drawning-station.appspot.com/o/capas%2FcapaRosa.jpg?alt=media&token=bba4de36-afe5-4e6a-bbd7-9785fa1a3cb2'},
+      {name:'Materiais', id:'Materiais', details:'Materiais recomendados', conclude:false, image:null},
+      {name:'Praticando esboço', id:'Esboço', details:'Vamos praticar um pouco de esboço?', conclude:false, image:null},
     ]
   }
 

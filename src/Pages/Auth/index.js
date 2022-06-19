@@ -1,22 +1,16 @@
-import React, {useState, useEffect, useContext} from 'react';
+import React, {useState, useContext} from 'react';
 import {
   View,
-  Image,
   Text,
-  ImageBackground,
   StyleSheet,
   Animated,
   TouchableOpacity,
-  TextInput,
 } from 'react-native';
 import {
   Background,
   BtnEnter,
   BtnInvisibleBorder,
-  ConcordTerms,
-  ImageLogo,
   InputComponent,
-  RedesArea,
   TextWhite,
 } from '../../StylesGerais';
 import Icons from 'react-native-vector-icons/Feather';
@@ -32,13 +26,12 @@ export default function Auth() {
   const [password, setPassword] = useState('');
   const [confirmpassword, setConfirPassword] = useState('');
 
-  const {loadingBtn, signUp, signIn, logInVerify} = useContext(AuthContext);
+  const {loadingBtn, signUp, signIn} = useContext(AuthContext);
   const {
     leftPosition,
     rightPosition,
     logoAnimation,
     exitAnimation,
-    callAnimation,
     changeState,
     estado,
   } = useContext(AnimationContext);
