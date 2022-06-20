@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
 import { AuthContext } from '../../../Contexts';
-import { BtnNext, BtnPrev, BtnPrevNextcontainer, TextBtn } from './styles';
+import { AreaColum, BtnNext, BtnPrev, BtnPrevNextcontainer, TextBtn, TextBtnName, TextBtnNameNext, TextBtnNext } from './styles';
+import Icon from 'react-native-vector-icons/Feather'
 
 export default function BtnPrevNextComponent() {
   const {exerciceData, difiuldade, setExerciceSelected, indexExer, setIndexExer} = useContext(AuthContext);
@@ -22,12 +23,23 @@ export default function BtnPrevNextComponent() {
      !indexExer ? (
        <BtnPrev
          onPress={() => alert('Este é o Primeiro exercicio')}>
-         <TextBtn>Anterior</TextBtn>
+           <AreaColum>
+             <TextBtn>Anterior</TextBtn>
+             <TextBtnName>End Line!</TextBtnName>
+           </AreaColum>
        </BtnPrev>
      ) : (
        <BtnPrev
          onPress={() => nextprevExercice(false)}>
-         <TextBtn>Anterior</TextBtn>
+          <Icon
+            size={30}
+            color="white"
+            name='chevron-left'
+            />
+           <AreaColum>
+            <TextBtn>Anterior</TextBtn>
+            <TextBtnName>{exerciceData[difiuldade][indexExer-1].name}</TextBtnName>
+           </AreaColum>
        </BtnPrev>
      )
    }
@@ -36,12 +48,24 @@ export default function BtnPrevNextComponent() {
      exerciceData[difiuldade].length === indexExer +1 ? (
        <BtnNext
          onPress={() => alert('Este é o ultiumo exercicio')}>
-         <TextBtn>Proximo</TextBtn>
+           <AreaColum>
+            <TextBtnNext>Próximo</TextBtnNext>
+            <TextBtnNameNext>End Line!</TextBtnNameNext>
+           </AreaColum>
+         
        </BtnNext>
      ) : (
      <BtnNext
        onPress={() => nextprevExercice(true)}>
-       <TextBtn>Próximo</TextBtn>
+         <AreaColum>
+           <TextBtnNext>Próximo</TextBtnNext>
+           <TextBtnNameNext>{exerciceData[difiuldade][indexExer+1].name}</TextBtnNameNext>
+         </AreaColum>
+         <Icon
+            size={30}
+            color="white"
+            name='chevron-right'
+            />
      </BtnNext>
      )
    }
