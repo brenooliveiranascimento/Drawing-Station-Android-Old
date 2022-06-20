@@ -8,6 +8,7 @@ import { BackGround } from './CardsAreaSyles';
 import {Modal} from 'react-native';
 import SelectDifiulty from '../../components/SelectDifiulty/SelectDificulty';
 import ModalComponent from '../../components/CardExercices/ModalComponent';
+import CardMessage from '../../components/CardExercices/CardMessageComponent/CardMessage';
 
 function CardsArea() {
   const {exerciceData, difiuldade} = useContext(AuthContext);
@@ -19,6 +20,7 @@ function CardsArea() {
       <BackGround
         source={require('../../assets/BackgroundDesfoque.png')}>
           <Header/>
+          <CardMessage navegador={navigation}/>
           <SelectDifiulty/>
           <CardsContainer>
            {

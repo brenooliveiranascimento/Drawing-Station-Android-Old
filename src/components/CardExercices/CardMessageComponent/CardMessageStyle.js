@@ -2,15 +2,17 @@ import styled from 'styled-components/native';
 
 export const MessageCardContainer = styled.View`
   padding: 15px;
-  width: 100%;
+  width: 90%;
+  align-self: center;
   height: auto;
-  align-items: center;
+  align-items: flex-start;
   justify-content: flex-start;
   margin-top: 20px;
   background-color: rgba(128,128,128,0.3);
   border-top-left-radius: 20px;
   border-top-right-radius: 20px;
   border-bottom-left-radius: 20px;
+  margin-bottom: 5%;
 `;
 
 export const ProgressText = styled.Text`

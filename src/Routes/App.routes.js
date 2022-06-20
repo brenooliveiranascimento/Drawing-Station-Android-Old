@@ -3,6 +3,7 @@ import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import Home from '../Pages/Home/index';
 import Exercicios from '../Pages/Exercicios/Exercicios';
 import CardsArea from '../Pages/CardsArea/CardsArea';
+import Instagram from '../Pages/webView/Instagram';
 
 export default function AppRoutes() {
   const Stack = createNativeStackNavigator();
@@ -31,6 +32,14 @@ export default function AppRoutes() {
         }}
         name="CardsArea"
         component={CardsArea}
+      />
+
+      <Stack.Screen
+        options={{
+          headerShown: false,
+        }}
+        name="instagramApp"
+        component={Instagram}
       />
     </Stack.Navigator>
   );
