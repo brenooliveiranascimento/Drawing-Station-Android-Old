@@ -7,7 +7,12 @@ export default class SelectDifiulty extends Component {
     super()
 
     this.state = {
-      dificultys: ['Basico', 'intermediario', 'Avançado'],
+      // dificultys: ['Basico', 'intermediario', 'Avançado'],
+      dificultys: [
+        {name:'Basico', id:'basics'},
+        {name:'intermediario', id:'intermediary'},
+        {name:'Avançado', id:'advanced'},
+      ],
       selected:'',
     };
     this.setDificulty = this.setDificulty.bind(this);
@@ -15,10 +20,6 @@ export default class SelectDifiulty extends Component {
   static contextType = AuthContext;
 
   async setDificulty(nowDificulty) {
-    if (this.context.difiuldade === nowDificulty) {
-      this.context.setDificuldade('');
-      return
-    }
     await this.context.setDificuldade(nowDificulty);
   }
 
@@ -29,11 +30,11 @@ export default class SelectDifiulty extends Component {
       this.state.dificultys.map((dificuldade) => {
         return(
           <BtnDificulty 
-            onPress={() => {this.setDificulty(dificuldade)}}
+            onPress={() => {this.setDificulty(dificuldade.id)}}
             key={dificuldade} 
-            dificulty={dificuldade} 
+            dificulty={dificuldade.id} 
             nowDificulty={this.context.difiuldade}>
-            <TextBtn>{dificuldade}</TextBtn>
+            <TextBtn>{dificuldade.name}</TextBtn>
           </BtnDificulty>
         )
       })
