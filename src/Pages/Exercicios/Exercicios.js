@@ -1,14 +1,12 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { View } from 'react-native';
-import { AuthContext } from '../../Contexts';
 import { BackgroundExercice } from '../../StylesGerais';
 import Header from '../../components/Header/headerBack'
 import PlayerAula from '../../components/ExerciceComponents/Player/Playes';
 import InfArae from '../../components/ExerciceComponents/InfArea/InfArea';
+import BtnPrevNextComponent from '../../components/ExerciceComponents/BtnPrevNextComponent';
 
-export default class Exercicios extends Component {
-  static contextType = AuthContext;
- render(){
+function Exercicios() {
   return (
     <BackgroundExercice
     source={require('../../../src/assets/BackgroundDesfoque.png')}>
@@ -17,8 +15,10 @@ export default class Exercicios extends Component {
         <Header/>
         <PlayerAula/>
         <InfArae/>
+        <BtnPrevNextComponent/>
       </View>
     </BackgroundExercice>
    );
  }
-}
+
+ export default Exercicios;

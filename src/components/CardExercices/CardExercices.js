@@ -19,11 +19,12 @@ class CardExercices extends Component {
   }
   static contextType = AuthContext;
 
-  selectExercice(dataExer) {
+  selectExercice(dataExer, index) {
     const {navegador} = this.props;
-    const {setExerciceSelected} = this.context;
+    const {setExerciceSelected, setIndexExer} = this.context;
 
     if(dataExer.finished) {
+      setIndexExer(index)
       setExerciceSelected(dataExer);
       navegador.navigate('Exercicios');
       return;
@@ -34,16 +35,15 @@ class CardExercices extends Component {
  render(){
    const {cardInf, updateModal} = this.props
   //  const {exercices} = this.state
-  console.log(cardInf);
    const {user} = this.context;
   return (
     <Container>
-      {cardInf.map((exercice) => (
+      {cardInf.map((exercice, index) => (
         <>
               <Card
               key={exercice.name}
               verify={exercice.finished}
-              onPress={() => exercice.finished ? this.selectExercice(exercice) : updateModal(true)}
+              onPress={() => exercice.finished ? this.selectExercice(exercice, index) : updateModal(true)}
               activeOpacity={0.8}>
                 <CartText style={{bottom:25}}> {exercice.name}</CartText>
                 <CartText style={{bottom:5}}> {exercice.finished ? (

@@ -16,6 +16,7 @@ export default function AuthProvider({children}) {
   const [difiuldade, setDificuldade] = useState('basics');
   const [exerciceSelected, setExerciceSelected] = useState({});
   const [message, setMessage] = useState('');
+  const [indexExer, setIndexExer] = useState(0);
 
   const updateMessage = async () => {
     firestore() 
@@ -364,7 +365,9 @@ export default function AuthProvider({children}) {
         setExerciceSelected,
         exerciceSelected,
         message,
-        pilares
+        pilares,
+        indexExer,
+        setIndexExer,
       }}>
       {children}
     </AuthContext.Provider>

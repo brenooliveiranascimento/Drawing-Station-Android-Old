@@ -9,7 +9,14 @@ export const BtnPrevNextcontainer = styled.View`
   justify-content: space-around;
 `;
 
-export const Btn = styled.TouchableOpacity`
+export const BtnPrev = styled.TouchableOpacity`
+  width: auto;
+  height: auto;
+  align-items: center;
+  justify-content: center;
+`;
+
+export const BtnNext = styled.TouchableOpacity`
   width: auto;
   height: auto;
   align-items: center;
