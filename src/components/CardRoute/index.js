@@ -54,7 +54,7 @@ export default class CardRoute extends Component {
           {
             pilar.image && (
             <ImageOfCardRout
-            source={{uri:pilar.image}}/>
+            source={pilar.image}/>
             )
             }
           </>
