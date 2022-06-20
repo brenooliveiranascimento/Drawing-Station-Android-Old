@@ -11,7 +11,6 @@ import {
   BtnEnter,
   BtnInvisibleBorder,
   InputComponent,
-  TextBase,
   TextWhite,
 } from '../../StylesGerais';
 import Icons from 'react-native-vector-icons/Feather';
@@ -108,6 +107,13 @@ export default function Auth() {
           }}
           placeholder={!estado ? 'Senha' : 'Email'}
         />
+        {!estado && (
+        <TouchableOpacity
+        style={{flex:1 , justifyContent:'center', marginTop:13, alignItems:'center', position:'absolute', right:'20%', top:'35%'}}
+          onPress={changePasswordVisibility}>
+            <Icons color={'white'} size={20} name={showPassWord ? 'eye' : 'eye-off'}/>
+        </TouchableOpacity>
+        )}
       </Animated.View>
       {estado && (
         <View
@@ -129,6 +135,11 @@ export default function Auth() {
               onChangeText={t => setPassword(t)}
               placeholder="Senha"
             />
+            <TouchableOpacity
+            style={{flex:1 , justifyContent:'center', marginTop:13, alignItems:'center', position:'absolute', right:'20%', top:'35%'}}
+              onPress={changePasswordVisibility}>
+                <Icons color={'white'} size={20} name={showPassWord ? 'eye' : 'eye-off'}/>
+            </TouchableOpacity>
           </Animated.View>
 
           <Animated.View
@@ -159,15 +170,6 @@ export default function Auth() {
           }}>
           <Animated.View
             style={{...styles.InputLeft, alignSelf:'flex-end'}}>
-            <TouchableOpacity
-            style={{flex:1 , justifyContent:'center', marginTop:13, borderRadius:7, borderWidth:1, borderColor:'#fff', alignItems:'center'}}
-              onPress={changePasswordVisibility}>
-              <TextWhite
-                style={{fontSize:16, color:"#aaa"}}>{
-                  showPassWord ? 'Mostrar senha' : 'Ocultar senha'
-                }
-                <Icons size={16} name={showPassWord ? 'eye' : 'eye-off'}/></TextWhite>
-            </TouchableOpacity>
           </Animated.View>
 
           <View style={{flexDirection: 'row'}}>
