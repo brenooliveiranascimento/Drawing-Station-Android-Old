@@ -1,4 +1,5 @@
 import React, { useContext, useState } from 'react';
+import { ScrollView } from 'react-native';
 import CardExercices from '../../components/CardExercices/CardExercices';
 import { AuthContext } from '../../Contexts';
 import { CardsContainer } from '../Home/HomeStyles';
@@ -9,6 +10,7 @@ import {Modal} from 'react-native';
 import SelectDifiulty from '../../components/SelectDifiulty/SelectDificulty';
 import ModalComponent from '../../components/CardExercices/ModalComponent';
 import CardMessage from '../../components/CardExercices/CardMessageComponent/CardMessage';
+import CardRoute from '../../components/CardRoute';
 
 function CardsArea() {
   const {exerciceData, difiuldade} = useContext(AuthContext);
@@ -22,17 +24,23 @@ function CardsArea() {
           <Header/>
           <CardMessage navegador={navigation}/>
           <SelectDifiulty/>
-          <CardsContainer>
-           {
-              exerciceData[difiuldade].map((exercice) => (
+          <ScrollView>
+            <CardsContainer>
+            {/* {
+                exerciceData[difiuldade].map((exercice) => (
+                  <CardExercices
+                    navegador={navigation}
+                    cardInf={exercice}
+                    updateModal={setShowModal}
+                    key={exercice.name}/>
+                ))
+                } */}
                 <CardExercices
-                  navegador={navigation}
-                  cardInf={exercice}
-                  updateModal={setShowModal}
-                  key={exercice.name}/>
-              ))
-              }
-          </CardsContainer>
+                    navegador={navigation}
+                    cardInf={exerciceData[difiuldade]}
+                    updateModal={setShowModal}/>
+            </CardsContainer>
+          </ScrollView>
           <Modal
           animationType="slide"
           visible={showModal}
