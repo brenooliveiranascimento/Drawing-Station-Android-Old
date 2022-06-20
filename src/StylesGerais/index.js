@@ -122,7 +122,7 @@ export const LapisContainer = styled.View`
 `;
 
 export const BtnFinalizar = styled.TouchableOpacity`
-  width: 40%;
+  width: 80%;
   height: auto;
   border-radius: 5px;
   background-color: rgba(0, 0, 0, 0.4);
@@ -131,6 +131,7 @@ export const BtnFinalizar = styled.TouchableOpacity`
   padding: 5px;
   flex-direction: row;
   margin-top: 15px;
+  align-self: flex-start;
 `;
 
 export const ConcordTerms = styled.TouchableOpacity`
