@@ -13,7 +13,7 @@ export default function AuthProvider({children}) {
   const [loading, setLoading] = useState(true);
   const {callAnimation} = useContext(AnimationContext);
   const [exerciceData, setExercicesData] = useState({});
-  const [difiuldade, setDificuldade] = useState('');
+  const [difiuldade, setDificuldade] = useState('basics');
   const [exerciceSelected, setExerciceSelected] = useState({});
   const [message, setMessage] = useState('');
 
@@ -96,7 +96,7 @@ export default function AuthProvider({children}) {
 
   const pilares = {
     items:[
-      {name:'Praticando pintura', id:'Pintura', details:'Hora de por a mão na massa!!', conclude:true, image:'https://firebasestorage.googleapis.com/v0/b/drawning-station.appspot.com/o/capas%2FcapaRosa.jpg?alt=media&token=bba4de36-afe5-4e6a-bbd7-9785fa1a3cb2'},
+      {name:'Praticando pintura', id:'Pintura', details:'Hora de por a mão na massa!!', conclude:true, image:require('../assets/Capas/capaRosa.jpg')},
       {name:'Materiais', id:'Materiais', details:'Materiais recomendados', conclude:false, image:null},
       {name:'Praticando esboço', id:'Esboço', details:'Vamos praticar um pouco de esboço?', conclude:false, image:null},
     ]
@@ -109,6 +109,7 @@ export default function AuthProvider({children}) {
   //   basics:[
   //     {
   //       name: 'Degrade',
+  //       finished:true,
   //       description: 'Exercicio introdutorio',
   //       url: 'https://firebasestorage.googleapis.com/v0/b/drawning-station.appspot.com/o/capas%2Fdegrade.jpg?alt=media&token=fadab5e1-d5a9-45fb-8d4c-50d7eec214ed',
   //       video: 'DXqcoe8bSKM',
@@ -126,9 +127,8 @@ export default function AuthProvider({children}) {
   //          green:[
   //           {cor: 'Preto'},
   //           {cor: 'cinza Escuro'},
-  //           {cor: 'Azul turquesa'},
-  //           {cor: 'Azul real'},
-  //           {cor: 'azul'},
+  //           {cor: 'Verde'},
+  //           {cor: 'Verde claro'},
   //           {cor: 'Branco'},
   //         ],
   //         blue: [
@@ -143,6 +143,7 @@ export default function AuthProvider({children}) {
   //     },
   //     {
   //       name: 'Bola',
+  //       finished:true,
   //       description: 'Exercicio de profundidade',
   //       url: 'https://firebasestorage.googleapis.com/v0/b/drawning-station.appspot.com/o/capas%2FcapaBolinha.png?alt=media&token=c7687d41-3ebf-42f2-bd47-230a199ea2ec',
   //       video: 'SMXCMsgJo6Y',
@@ -160,6 +161,7 @@ export default function AuthProvider({children}) {
   //     },
   //     {
   //       name: 'Pétala',
+  //       finished:true,
   //       description: 'Praticando um pouco mais',
   //       url: 'https://firebasestorage.googleapis.com/v0/b/drawning-station.appspot.com/o/capas%2FcapaPetalas.jpg?alt=media&token=24064f35-3bdc-41c1-b93c-a22b10bfbcad',
   //       video: 'yZ7qqDUzMFc&t=409s',
@@ -177,6 +179,7 @@ export default function AuthProvider({children}) {
   //     },
   //     {
   //       name: 'Rosa',
+  //       finished:true,
   //       description: 'Desenho mais complexo',
   //       url: 'https://firebasestorage.googleapis.com/v0/b/drawning-station.appspot.com/o/capas%2FcapaRosa.jpg?alt=media&token=bba4de36-afe5-4e6a-bbd7-9785fa1a3cb2',
   //       video: 'MhDWTg7vdkI',
@@ -199,11 +202,13 @@ export default function AuthProvider({children}) {
   //   intermediary:[
   //     {
   //       name: 'Cabelo curto',
+  //       finished:false,
   //       descricao: 'cabelo castanho curto',
   //       url: 'https://firebasestorage.googleapis.com/v0/b/drawning-station.appspot.com/o/capas%2FCapaCavelo.png?alt=media&token=82f72d1f-d81a-45fe-9bda-eb4b9cc1a265',
   //     },
   //     {
   //       name: 'Rosa Azul',
+  //       finished:false,
   //       descricao: 'Rosa Azul com fundo',
   //       url: 'https://firebasestorage.googleapis.com/v0/b/drawning-station.appspot.com/o/rosaicon.jpg?alt=media&token=7d2640a3-624a-4c73-96d3-12de0d478e5d',
   //     },
@@ -211,17 +216,25 @@ export default function AuthProvider({children}) {
   //   advanced: [
   //     {
   //       name: 'Terry Crews',
+  //       finished:false,
   //       descricao: 'Em Breve',
   //       url: 'https://firebasestorage.googleapis.com/v0/b/drawning-station.appspot.com/o/capas%2FIMG_20220206_140140_972.jpg?alt=media&token=23432fec-dbc8-462f-8120-e3770f26b908',
   //     },
   //     {
   //       name: 'Hulk Buster',
+  //       finished:false,
   //       descricao: 'Em Breve',
   //       url: 'https://firebasestorage.googleapis.com/v0/b/drawning-station.appspot.com/o/capas%2FIMG_20220206_150724_464%20(1).jpg?alt=media&token=b0241de3-8964-4c31-aa17-10d7855301cc',
   //     },
   //   ]
   // })
 
+  // const updateExerciceDatra = async () => {
+  //   firestore().collection('exercices').doc('dados').set(dataEx)
+  //   .then(() => alert('feito com sucesso!'))
+  // }
+  // updateExerciceDatra()
+  
   const signUp = (email, password, name) => {
     setLoadingBtn(true);
     auth()

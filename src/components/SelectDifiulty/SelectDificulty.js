@@ -1,4 +1,3 @@
-/* eslint-disable react/prop-types */
 import React, { Component } from 'react';
 import { AuthContext } from '../../Contexts';
 import { BtnContainer, BtnDificulty, TextBtn } from './styles';
@@ -8,45 +7,34 @@ export default class SelectDifiulty extends Component {
     super()
 
     this.state = {
-      dificultys: [{
-        name:'Basico',
-        id:'basicos'
-      }, {
-        name:'intermediario',
-        id:'intermediario'
-      }, {
-        name:'Avançado',
-        id:'avançado'
-      }],
+      // dificultys: ['Basico', 'intermediario', 'Avançado'],
+      dificultys: [
+        {name:'Basico', id:'basics'},
+        {name:'intermediario', id:'intermediary'},
+        {name:'Avançado', id:'advanced'},
+      ],
       selected:'',
     };
     this.setDificulty = this.setDificulty.bind(this);
   }
   static contextType = AuthContext;
 
-  async setDificulty(id) {
-    if (this.props.homeState === id) {
-      this.props.updateDificulty('');
-      this.props.exit();
-      alert('saindo')
-      return
-    }
-    this.props.updateDificulty(id);
-  //  const {updateDificulty, updateEntry, homeState} = this.props
+  async setDificulty(nowDificulty) {
+    await this.context.setDificuldade(nowDificulty);
   }
 
  render(){
   return (
     <BtnContainer>
       {
-      this.state.dificultys.map(({name, id}) => {
+      this.state.dificultys.map((dificuldade) => {
         return(
           <BtnDificulty 
-            onPress={() => {this.setDificulty(id)}}
-            key={name} 
-            dificulty={id} 
-            nowDificulty={this.props.homeState}>
-            <TextBtn>{name}</TextBtn>
+            onPress={() => {this.setDificulty(dificuldade.id)}}
+            key={dificuldade} 
+            dificulty={dificuldade.id} 
+            nowDificulty={this.context.difiuldade}>
+            <TextBtn>{dificuldade.name}</TextBtn>
           </BtnDificulty>
         )
       })

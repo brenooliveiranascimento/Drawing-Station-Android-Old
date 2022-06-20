@@ -16,10 +16,14 @@ export const ModalContainer = styled.View`
 `;
 
 export const ModalHEaderBtn = styled.TouchableOpacity`
+  width: 40px;
+  height: auto;
+  padding: 10px;
+  background-color: rgba(0,0,0,0.2);
+  border-radius: 10px;
   align-items: center;
   justify-content: center;
-  width: auto;
-  height: auto;
+  text-align: center;
 `;
 
 export const ModalHeader = styled.View`
@@ -39,5 +43,5 @@ export const TextModal = styled.Text`
 export const TextHeaderModal = styled.Text`
   font-size: 23px;
   color: #fff;
-  align-self: flex-start;
+  align-self: center;
 `;

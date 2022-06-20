@@ -5,7 +5,8 @@ export const Card = styled.TouchableOpacity`
   height: 180px;
   align-items: center;
   justify-content: center;
-  background-color: rgba(0,0,0,0.3);
+  background-color: ${({verify}) => verify ? 'rgba(0,0,0,0.2)' : 'rgba(30,30,0,0.3)'};
+  /* background-color: rgba(0,0,0,0.3); */
   align-self: center;
   margin: 10px;
   z-index: 99;
@@ -31,4 +32,5 @@ export const CartText = styled.Text`
   position: absolute;
   bottom: 15px;
   left: 10px;
+  text-align: center;
 `;
