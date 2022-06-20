@@ -13,7 +13,7 @@ export const Container = styled.View`
 export const Card = styled.TouchableOpacity`
   width: 45%;
   height: 190px;
-  background-color: ${({verify}) => verify ? 'rgba(0,0,0,0.2)' : 'rgba(30,30,0,0.3)'};
+  background-color: ${({verify}) => verify ? 'rgba(0,0,0,0.0)' : 'rgba(30,30,0,0.0)'};
   border-top-left-radius: 20px;
   border-top-right-radius: 20px;
   border-bottom-left-radius: 20px;
@@ -25,11 +25,11 @@ export const Card = styled.TouchableOpacity`
 export const BackgroundBlack = styled.View`
   width: 100%;
   height: 100%;
-  background-color: ${({verify}) => verify ? 'rgba(0,0,0,0.0)' : 'rgba(30,30,0,0.3)'};
+  background-color: ${({verify}) => verify ? 'rgba(0,0,0,0.3)' : 'rgba(30,30,0,0.3)'};
   border-top-left-radius: 20px;
   border-top-right-radius: 20px;
   border-bottom-left-radius: 20px;
-  z-index: 99;
+  z-index: 98;
   position: absolute;
 `;
 
@@ -70,4 +70,5 @@ export const CartText = styled.Text`
   bottom: 15px;
   left: 10px;
   text-align: center;
+  z-index: 99;
 `;

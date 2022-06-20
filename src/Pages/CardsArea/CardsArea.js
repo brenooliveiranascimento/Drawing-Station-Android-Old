@@ -10,7 +10,7 @@ import {Modal} from 'react-native';
 import SelectDifiulty from '../../components/SelectDifiulty/SelectDificulty';
 import ModalComponent from '../../components/CardExercices/ModalComponent';
 import CardMessage from '../../components/CardExercices/CardMessageComponent/CardMessage';
-import CardRoute from '../../components/CardRoute';
+import ProgressBar from '../../components/ProgressBar/ProgressBar';
 
 function CardsArea() {
   const {exerciceData, difiuldade} = useContext(AuthContext);
@@ -23,18 +23,10 @@ function CardsArea() {
         source={require('../../assets/BackgroundDesfoque.png')}>
           <Header/>
           <CardMessage navegador={navigation}/>
+          <ProgressBar/>
           <SelectDifiulty/>
           <ScrollView>
             <CardsContainer>
-            {/* {
-                exerciceData[difiuldade].map((exercice) => (
-                  <CardExercices
-                    navegador={navigation}
-                    cardInf={exercice}
-                    updateModal={setShowModal}
-                    key={exercice.name}/>
-                ))
-                } */}
                 <CardExercices
                     navegador={navigation}
                     cardInf={exerciceData[difiuldade]}
