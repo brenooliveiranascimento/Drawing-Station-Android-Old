@@ -111,7 +111,7 @@ export default function Auth() {
         <TouchableOpacity
         style={{flex:1 , justifyContent:'center', marginTop:13, alignItems:'center', position:'absolute', right:'20%', top:'35%'}}
           onPress={changePasswordVisibility}>
-            <Icons color={'white'} size={20} name={showPassWord ? 'eye' : 'eye-off'}/>
+            <Icons color={'#aaa'} size={20} name={showPassWord ? 'eye' : 'eye-off'}/>
         </TouchableOpacity>
         )}
       </Animated.View>
@@ -136,9 +136,9 @@ export default function Auth() {
               placeholder="Senha"
             />
             <TouchableOpacity
-            style={{flex:1 , justifyContent:'center', marginTop:13, alignItems:'center', position:'absolute', right:'20%', top:'35%'}}
+            style={{flex:1, justifyContent:'center', marginTop:13, alignItems:'center', position:'absolute', right:'20%', top:'35%'}}
               onPress={changePasswordVisibility}>
-                <Icons color={'white'} size={20} name={showPassWord ? 'eye' : 'eye-off'}/>
+                <Icons color={'#aaa'} size={20} name={showPassWord ? 'eye' : 'eye-off'}/>
             </TouchableOpacity>
           </Animated.View>
 
@@ -174,7 +174,7 @@ export default function Auth() {
 
           <View style={{flexDirection: 'row'}}>
             <TouchableOpacity
-              onPress={() => navigation.navigate('termos')}
+              onPress={() => navigation.navigate('Termos')}
               style={{flex: 1}}>
               <Text
                 style={{

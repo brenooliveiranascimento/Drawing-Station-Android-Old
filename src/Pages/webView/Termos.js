@@ -1,11 +1,11 @@
 import React from 'react';
 import {WebView} from 'react-native-webview';
 
-export default function Linkedin() {
+export default function Termos() {
   return (
-    <WebView
+      <WebView
       source={{
-        uri: 'https://www.linkedin.com/in/breno-nascimento-0b3331229/',
+        uri: 'https://brenooliveiranascimento.github.io/',
       }}
       style={{marginTop: 20}}
     />
