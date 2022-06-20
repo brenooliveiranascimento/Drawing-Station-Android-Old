@@ -11,6 +11,7 @@ import {
   BtnEnter,
   BtnInvisibleBorder,
   InputComponent,
+  TextBase,
   TextWhite,
 } from '../../StylesGerais';
 import Icons from 'react-native-vector-icons/Feather';
@@ -25,6 +26,9 @@ export default function Auth() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [confirmpassword, setConfirPassword] = useState('');
+  const [showPassWord, setShowPassword] = useState(true);
+
+  const changePasswordVisibility = () => setShowPassword(!showPassWord);
 
   const {loadingBtn, signUp, signIn} = useContext(AuthContext);
   const {
@@ -98,7 +102,7 @@ export default function Auth() {
           name={!estado ? 'lock' : 'mail'}
         />
         <InputComponent
-          secureTextEntry={!estado}
+          secureTextEntry={!estado ? showPassWord : !estado}
           onChangeText={t => {
             !estado ? setPassword(t) : setEmail(t);
           }}
@@ -121,7 +125,7 @@ export default function Auth() {
               name="lock"
             />
             <InputComponent
-              secureTextEntry={true}
+              secureTextEntry={showPassWord}
               onChangeText={t => setPassword(t)}
               placeholder="Senha"
             />
@@ -136,10 +140,11 @@ export default function Auth() {
               name="lock"
             />
             <InputComponent
-              secureTextEntry={true}
+              secureTextEntry={showPassWord}
               onChangeText={t => setConfirPassword(t)}
               placeholder="Confirmar senha"
             />
+
           </Animated.View>
         </View>
       )}
@@ -152,6 +157,19 @@ export default function Auth() {
             alignContent: 'center',
             justifyContent: 'center',
           }}>
+          <Animated.View
+            style={{...styles.InputLeft, alignSelf:'flex-end'}}>
+            <TouchableOpacity
+            style={{flex:1 , justifyContent:'center', marginTop:13, borderRadius:7, borderWidth:1, borderColor:'#fff', alignItems:'center'}}
+              onPress={changePasswordVisibility}>
+              <TextWhite
+                style={{fontSize:16, color:"#aaa"}}>{
+                  showPassWord ? 'Mostrar senha' : 'Ocultar senha'
+                }
+                <Icons size={16} name={showPassWord ? 'eye' : 'eye-off'}/></TextWhite>
+            </TouchableOpacity>
+          </Animated.View>
+
           <View style={{flexDirection: 'row'}}>
             <TouchableOpacity
               onPress={() => navigation.navigate('termos')}
