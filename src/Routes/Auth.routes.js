@@ -4,6 +4,7 @@ import Auth from '../Pages/Auth';
 import Linkedin from '../Pages/webView/Linkedin';
 import YoutubeView from '../Pages/webView/Youtube';
 import Instagram from '../Pages/webView/Instagram';
+import Termos from '../Pages/webView/Termos';
 
 export default function AuthRoutes() {
   const Stack = createNativeStackNavigator();
@@ -39,6 +40,11 @@ export default function AuthRoutes() {
         }}
         name="instagramAuth"
         component={Instagram}
+      />
+
+      <Stack.Screen
+        name="Termos"
+        component={Termos}
       />
 
     </Stack.Navigator>

@@ -20,9 +20,9 @@ function Home(){
           </CardsContainer>
         </ScrollView>
         <Modal 
-          animationType="slide"
-          visible={showModal}
-          transparent>
+         animationType='slide'
+         transparent={true}
+         visible={showModal}>
           <ModalComponent 
             updateModal={setShowModal}/>
         </Modal>

@@ -25,6 +25,9 @@ export default function Auth() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [confirmpassword, setConfirPassword] = useState('');
+  const [showPassWord, setShowPassword] = useState(true);
+
+  const changePasswordVisibility = () => setShowPassword(!showPassWord);
 
   const {loadingBtn, signUp, signIn} = useContext(AuthContext);
   const {
@@ -98,12 +101,19 @@ export default function Auth() {
           name={!estado ? 'lock' : 'mail'}
         />
         <InputComponent
-          secureTextEntry={!estado}
+          secureTextEntry={!estado ? showPassWord : !estado}
           onChangeText={t => {
             !estado ? setPassword(t) : setEmail(t);
           }}
           placeholder={!estado ? 'Senha' : 'Email'}
         />
+        {!estado && (
+        <TouchableOpacity
+        style={{flex:1 , justifyContent:'center', marginTop:13, alignItems:'center', position:'absolute', right:'20%', top:'35%'}}
+          onPress={changePasswordVisibility}>
+            <Icons color={'#aaa'} size={20} name={showPassWord ? 'eye' : 'eye-off'}/>
+        </TouchableOpacity>
+        )}
       </Animated.View>
       {estado && (
         <View
@@ -121,10 +131,15 @@ export default function Auth() {
               name="lock"
             />
             <InputComponent
-              secureTextEntry={true}
+              secureTextEntry={showPassWord}
               onChangeText={t => setPassword(t)}
               placeholder="Senha"
             />
+            <TouchableOpacity
+            style={{flex:1, justifyContent:'center', marginTop:13, alignItems:'center', position:'absolute', right:'20%', top:'35%'}}
+              onPress={changePasswordVisibility}>
+                <Icons color={'#aaa'} size={20} name={showPassWord ? 'eye' : 'eye-off'}/>
+            </TouchableOpacity>
           </Animated.View>
 
           <Animated.View
@@ -136,10 +151,11 @@ export default function Auth() {
               name="lock"
             />
             <InputComponent
-              secureTextEntry={true}
+              secureTextEntry={showPassWord}
               onChangeText={t => setConfirPassword(t)}
               placeholder="Confirmar senha"
             />
+
           </Animated.View>
         </View>
       )}
@@ -152,9 +168,13 @@ export default function Auth() {
             alignContent: 'center',
             justifyContent: 'center',
           }}>
+          <Animated.View
+            style={{...styles.InputLeft, alignSelf:'flex-end'}}>
+          </Animated.View>
+
           <View style={{flexDirection: 'row'}}>
             <TouchableOpacity
-              onPress={() => navigation.navigate('termos')}
+              onPress={() => navigation.navigate('Termos')}
               style={{flex: 1}}>
               <Text
                 style={{
