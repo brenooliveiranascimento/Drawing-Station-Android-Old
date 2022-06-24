@@ -30,7 +30,7 @@ function Exercicios() {
         </ScrollView>
       </View>
       <Modal 
-        transparent
+        transparent={true}
         animationType='slide'
         visible={showModal}>
           <ModalReference setModal={() => setSHowModal(!showModal)}/>
