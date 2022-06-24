@@ -29,7 +29,7 @@ export default function Auth() {
 
   const changePasswordVisibility = () => setShowPassword(!showPassWord);
 
-  const {loadingBtn, signUp, signIn} = useContext(AuthContext);
+  const {loadingBtn, signUp, signIn, visitUser} = useContext(AuthContext);
   const {
     leftPosition,
     rightPosition,
@@ -191,14 +191,7 @@ export default function Auth() {
         </Animated.View>
       )}
 
-      <Animated.View
-        style={{width: '100%', marginBottom:'-7%',marginLeft: 160, marginTop:10,marginRight: rightPosition}}>
-        <BtnInvisibleBorder onPress={changeState}>
-          <TextWhite>
-            Entrar como Visitante
-          </TextWhite>
-        </BtnInvisibleBorder>
-      </Animated.View>
+      
 
       <Animated.View
         style={{width: '100%', marginRight: -100, marginLeft: leftPosition}}>
@@ -214,6 +207,19 @@ export default function Auth() {
           </TextWhite>
         </BtnEnter>
       </Animated.View>
+
+      {
+        !estado && (
+      <Animated.View
+        style={{width: '100%',marginLeft: 160, marginTop:10,marginRight: rightPosition}}>
+        <BtnInvisibleBorder onPress={visitUser}>
+          <TextWhite>
+            Entrar como Visitante
+          </TextWhite>
+        </BtnInvisibleBorder>
+      </Animated.View>
+        )
+      }
 
       <Animated.View
         style={{width: '100%', marginLeft: 160, marginRight: rightPosition}}>
