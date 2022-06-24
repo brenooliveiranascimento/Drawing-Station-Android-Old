@@ -4,6 +4,7 @@ export const InfContainer = styled.View`
   flex-direction: column;
   width: 100%;
   padding: 20px;
+  margin-top:15px;
 `;
 
 export const Name = styled.Text`
