@@ -192,6 +192,15 @@ export default function Auth() {
       )}
 
       <Animated.View
+        style={{width: '100%', marginBottom:'-7%',marginLeft: 160, marginTop:10,marginRight: rightPosition}}>
+        <BtnInvisibleBorder onPress={changeState}>
+          <TextWhite>
+            Entrar como Visitante
+          </TextWhite>
+        </BtnInvisibleBorder>
+      </Animated.View>
+
+      <Animated.View
         style={{width: '100%', marginRight: -100, marginLeft: leftPosition}}>
         <BtnEnter onPress={registrar}>
           <TextWhite>
@@ -252,7 +261,6 @@ export default function Auth() {
 
       {!estado && (
         <TouchableOpacity
-          onPress={() => navigation.navigate('eu')}
           style={{position: 'absolute', bottom: 20}}>
           <Text style={{color: '#aaa'}}>
             Desenvolvido com carinho por @Breno Nascimento
