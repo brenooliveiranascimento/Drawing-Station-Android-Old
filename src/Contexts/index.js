@@ -17,7 +17,6 @@ export default function AuthProvider({children}) {
   const [exerciceSelected, setExerciceSelected] = useState({});
   const [message, setMessage] = useState('');
   const [indexExer, setIndexExer] = useState(0);
-  const [isVisitant, setIsVisitant] = useState(false);
 
   const updateMessage = async () => {
     firestore() 
@@ -293,6 +292,10 @@ export default function AuthProvider({children}) {
       });
   };
 
+  // const resetPassword = async () => {
+  //   await auth().sendPasswordResetEmail()
+  // }
+
 
   const visitUser = async () => {
     let data = {
@@ -368,6 +371,7 @@ export default function AuthProvider({children}) {
   async function signOut() {
     if(user.isVisitant) {
       await firestore().collection('users').doc(user.uid).delete();
+      await AsyncStorage.clear().then(() => setUser(null));
       setUser(null);
       return
     }

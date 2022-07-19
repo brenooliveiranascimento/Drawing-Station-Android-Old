@@ -20,7 +20,7 @@ function CardsArea() {
 
     return (
       <BackGround
-        source={require('../../assets/BackgroundDesfoque.png')}>
+        source={require('../../assets/novosFUndos/layered-waves-haikei.png')}>
           <Header/>
           <CardMessage navegador={navigation}/>
           <ProgressBar/>

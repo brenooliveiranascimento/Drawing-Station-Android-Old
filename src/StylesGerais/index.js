@@ -20,7 +20,7 @@ export const ImageLogo = styled.Image`
 `;
 
 export const InputComponent = styled.TextInput.attrs({
-  placeholderTextColor: 'rgba(165, 165, 165, 0.5)',
+  placeholderTextColor: '#ddd',
 })`
   height: 40;
   width: 77%;
@@ -28,20 +28,23 @@ export const InputComponent = styled.TextInput.attrs({
   color: #fff;
   font-size: 16px;
   margin-left: 25px;
-  background-color: rgba(165, 165, 165, 0.2);
+  background-color: rgba(100,60,100,0.6);
   border-radius: 30px;
   padding: 10px;
+  z-index: 1;
 `;
 
 export const BtnEnter = styled.TouchableOpacity`
   width: 60%;
   height: 40px;
   border-radius: 5px;
-  background-color: rgba(255, 20, 147, 0.1);
   align-items: center;
   justify-content: center;
-  margin-top: 40px;
+  margin-top: 30px;
   border-radius: 30px;
+  border-color: rgba(165, 165, 165, 0.7);
+  background-color: rgba(90,60,100,0.8);
+  z-index: 1;
 `;
 
 export const BtnInvisibleBorder = styled.TouchableOpacity`
@@ -50,15 +53,17 @@ export const BtnInvisibleBorder = styled.TouchableOpacity`
   border-radius: 5px;
   align-items: center;
   justify-content: center;
-  margin-top: 10px;
+  margin-top: 5px;
+  z-index: 1;
   border-radius: 30px;
   border-width: 1px;
-  border-color: rgba(255, 20, 147, 0.4);
+  border-color: rgba(165, 165, 165, 0.7);
 `;
 
 export const TextWhite = styled.Text`
   font-size: 18px;
   color: #fff;
+  font-weight: 500;
 `;
 
 export const RedesArea = styled.View`

@@ -1,19 +1,19 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import AuthRoutes from './Auth.routes';
 import { AuthContext } from '../Contexts';
-import LoadingIndicator from '../components/LoadingIndicator';
 import AppRoutes from './App.routes';
-import { Background } from '../StylesGerais';
+import LoadingPage from '../Pages/LoadingPage/LoadingPage';
 
 export default function Routes() {
-  const { user, loading } = useContext(AuthContext)
+  const { user,  } = useContext(AuthContext)
+  const [loading, setLoading] = useState(true);
+
+  const loadingPageTime = () => setTimeout(() => setLoading(false), 5000);
+
   if(loading) {
+    loadingPageTime();
     return(
-      <Background
-        source={require("../assets/BackgroundDesfoque.png")}
-        >
-        <LoadingIndicator/>
-      </Background>
+      <LoadingPage />
     )
   }
  return (

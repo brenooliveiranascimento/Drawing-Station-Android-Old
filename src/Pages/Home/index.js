@@ -12,7 +12,7 @@ function Home(){
   const [showModal, setShowModal] = useState(false);
     return (
       <BackGround
-      source={require('../../assets/BackgroundDesfoque.png')}>
+      source={require('../../assets/novosFUndos/layered-waves-haikei.png')}>
         <UserArea/>
         <ScrollView style={{marginTop:15}}>
           <CardsContainer>
