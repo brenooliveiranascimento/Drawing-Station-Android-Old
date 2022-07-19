@@ -292,6 +292,52 @@ export default function AuthProvider({children}) {
       });
   };
 
+  // const resetPassword = async () => {
+  //   await auth().sendPasswordResetEmail()
+  // }
+
+
+  const visitUser = async () => {
+    let data = {
+      email: '',
+      name: '',
+      uid: Math.floor(Date.now() * Math.random()).toString(36),
+      licenca: null,
+      inter: 0,
+      avan: 0,
+      Basic: 0,
+      Degrade: 0,
+      Bola: 0,
+      Bola_azul:0,
+      Bola_verder:0,
+      Bola_amarela:0,
+      Maçã: 0,
+      Rosa: 0,
+      blueRose: 0,
+      all: 0,
+      Pétala: 0,
+      frase: '',
+      perfil: null,
+      balloom:0,
+      terry:0,
+      hulkBUster:0,
+      shortHair:0,
+      longHair:0,
+      stephenHawking:0,
+      isVisitant:true
+    };
+    await firestore().collection('users').doc(data.uid).set(data)
+    .then(() => {
+      updateVersionStore();
+            updateStore(data, 'now_user');
+            setLogInVerify(true);
+            setLoadingBtn(false);
+            setTimeout(() => {
+              setUser(data);
+            }, 300);
+    })
+  };
+
   const signIn = (email, password) => {
     setLoadingBtn(true);
     auth()
@@ -323,6 +369,12 @@ export default function AuthProvider({children}) {
   };
 
   async function signOut() {
+    if(user.isVisitant) {
+      await firestore().collection('users').doc(user.uid).delete();
+      await AsyncStorage.clear().then(() => setUser(null));
+      setUser(null);
+      return
+    }
     await AsyncStorage.clear().then(async () => {
       await auth().signOut();
       setUser(null);
@@ -368,6 +420,7 @@ export default function AuthProvider({children}) {
         pilares,
         indexExer,
         setIndexExer,
+        visitUser
       }}>
       {children}
     </AuthContext.Provider>

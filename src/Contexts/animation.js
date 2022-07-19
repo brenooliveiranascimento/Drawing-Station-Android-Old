@@ -3,8 +3,8 @@ import { Animated } from 'react-native'
 export const AnimationContext = createContext();
 
 export default function AnimationProvider({children}) {
-  const [leftPosition, setLeftPosition] = useState(new Animated.Value(-1000))
-  const [rightPosition, setRightPosition] = useState(new Animated.Value(-1000))
+  const [leftPosition, setLeftPosition] = useState(new Animated.Value(0))
+  const [rightPosition, setRightPosition] = useState(new Animated.Value(0))
   const [logoAnimation, setLogoAnimation] = useState(new Animated.Value(0));
   const [homeState, setHomeState] = useState('basicos')
   const [estado, setEstado] = useState(false);
@@ -71,126 +71,164 @@ export default function AnimationProvider({children}) {
 
   
   function exitAnimation() {
-    
-    Animated.timing(
-      leftPosition,{
-        toValue:-1000,
-        duration:300,
-      }
-    ).start()
-    Animated.timing(
-      rightPosition,{
-        toValue:-1000,
-        duration:300,
-      }
-    ).start()
     Animated.timing(
       logoAnimation,{
-        toValue:0,
+        toValue:!estado ? 300 : 200,
         duration:300,
       }
     ).start()
-
-    setTimeout(()=>{
-      Animated.sequence([
-        Animated.timing(
-          leftPosition,{
-            toValue:70,
-            duration:300,
-          }
-        ),
-        Animated.timing(
-          leftPosition,{
-            toValue:50,
-            duration:100,
-          }
-        ),
-
-      ]).start()
-
-  Animated.sequence([
-    Animated.timing(
-      rightPosition,{
-        toValue:50,
-        duration:300,
-      }
-    ),
-    Animated.timing(
-      rightPosition,{
-        toValue:10,
-        duration:100,
-      }
-    )
-  ]).start()
-  Animated.timing(
-    logoAnimation,{
-      toValue:!estado ? 300 : 200,
-      duration:300,
-    }
-  ).start()
-    },4000)
+    Animated.sequence([
+      Animated.timing(
+        leftPosition,{
+          toValue:70,
+          duration:300,
+        }
+      ),
+      Animated.timing(
+        leftPosition,{
+          toValue:50,
+          duration:100,
+        }
+      ),
+    ]).start()
+  
+    Animated.sequence([
+      Animated.timing(
+        rightPosition,{
+          toValue:50,
+          duration:300,
+        }
+      ),
+      Animated.timing(
+        rightPosition,{
+          toValue:10,
+          duration:100,
+        }
+      )
+    ]).start()
 }
 
-function changeState() {
+function loadingAnimation() {
+  // Animated.sequence([
+  //   Animated.timing(
+  //     rightPosition,{
+  //       toValue:0,
+  //       duration:300,
+  //     }
+  //   ),
+  //   ]).start();
+  //   Animated.sequence([
+  //     Animated.timing(
+  //       leftPosition,{
+  //         toValue:0,
+  //         duration:300,
+  //       }
+  //     ),
+  //     ]).start();
   Animated.sequence([
     Animated.timing(
       logoAnimation,{
-        toValue:0,
-        duration:300,
-      }
-    ),
-    Animated.timing(
-      logoAnimation,{
-        toValue:estado ? 300 : 200,
+        toValue: 0,
         duration:300,
       }
     ),
   ]).start()
-  Animated.sequence([
-    Animated.timing(
-      leftPosition,{
-        toValue:-1000,
-        duration:300,
-      }
-    ),
-    Animated.timing(
-      leftPosition,{
-        toValue:70,
-        duration:300,
-      }
-    ),
-    Animated.timing(
-      leftPosition,{
-        toValue:50,
-        duration:100,
-      }
-    ),
-  ]).start()
+  setTimeout(() => changeState('loading'), 1000)
+}
 
-  Animated.sequence([
-    Animated.timing(
-      rightPosition,{
-        toValue:-1000,
-        duration:300,
-      }
-    ),
+function changeState(bool) {
+  if (bool === 'loading') {
+    Animated.sequence([
+      Animated.timing(
+        logoAnimation,{
+          toValue: !estado ? 300 : 200,
+          duration:300,
+        }
+      ),
+    ]).start()
+    
+  } else {
+    Animated.sequence([
+      Animated.timing(
+        logoAnimation,{
+          toValue:0,
+          duration:300,
+        }
+      ),
+      Animated.timing(
+        logoAnimation,{
+          toValue: estado ? 300 : 200,
+          duration:300,
+        }
+      ),
+    ]).start()
+  }
 
-    Animated.timing(
-      rightPosition,{
-        toValue:50,
-        duration:300,
-      }
-    ),
-    Animated.timing(
-      rightPosition,{
-        toValue:10,
-        duration:100,
-      }
-    )
-  ]).start()
+  if (bool === 'loading') {
+    Animated.sequence([
+      Animated.timing(
+        leftPosition,{
+          toValue:50,
+          duration:300,
+        }
+      ),
+    ]).start()
+    Animated.sequence([
+      Animated.timing(
+        rightPosition,{
+          toValue:10,
+          duration:300,
+        }
+      )
+    ]).start()
+  } else {
+    Animated.sequence([
+      Animated.timing(
+        leftPosition,{
+          toValue:-1000,
+          duration:300,
+        }
+      ),
+      Animated.timing(
+        leftPosition,{
+          toValue:70,
+          duration:300,
+        }
+      ),
+      Animated.timing(
+        leftPosition,{
+          toValue:50,
+          duration:100,
+        }
+      ),
+    ]).start()
+  
+    Animated.sequence([
+      Animated.timing(
+        rightPosition,{
+          toValue:-1000,
+          duration:300,
+        }
+      ),
+      Animated.timing(
+        rightPosition,{
+          toValue:50,
+          duration:300,
+        }
+      ),
+      Animated.timing(
+        rightPosition,{
+          toValue:10,
+          duration:100,
+        }
+      )
+    ]).start()
+  }
+  if (bool !== 'loading') {
     setTimeout(()=>{
       setEstado(estado ? false : true);
     },300)
+  }
 }
 
 function callAnimation() {
@@ -231,9 +269,9 @@ function callAnimation() {
   ]).start()
 }
 
-useEffect(()=>{
-    callAnimation()
-},[])
+// useEffect(()=>{
+//     callAnimation()
+// },[])
 
 function changeHomeState(f) {
   setHomeState( homeState === f ? null : f);
@@ -255,7 +293,7 @@ function changeHomeState(f) {
       moveHome,
       moveBasic,
       moveBasicExit,
-      moveEntry
+      loadingAnimation
     }}
     >
       {children}

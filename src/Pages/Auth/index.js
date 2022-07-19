@@ -19,6 +19,7 @@ import LoadingIndicator from '../../components/LoadingIndicator';
 import dismissKeyboard from 'react-native/Libraries/Utilities/dismissKeyboard';
 import {AnimationContext} from '../../Contexts/animation';
 import {useNavigation} from '@react-navigation/native';
+// import LottieView from 'lottie-react-native';
 
 export default function Auth() {
   const [name, setName] = useState('');
@@ -29,7 +30,7 @@ export default function Auth() {
 
   const changePasswordVisibility = () => setShowPassword(!showPassWord);
 
-  const {loadingBtn, signUp, signIn} = useContext(AuthContext);
+  const {loadingBtn, signUp, signIn, visitUser} = useContext(AuthContext);
   const {
     leftPosition,
     rightPosition,
@@ -70,19 +71,20 @@ export default function Auth() {
   }
 
   return (
+    <View
+      style={{backgroundColor:"rgba(0,0,0,0.4)", flex:1}}>
     <Background
-      style={{flex: 1, height: '100%'}}
-      source={require('../../assets/backgrounddegraderoxo1.png')}>
+    style={{flex: 1, height: '100%', zIndex: 1}}
+    source={require('../../assets/novosFUndos/layered-waves-haikei.png')}>
       <Animated.Image
         style={{...styles.logoImage, width: logoAnimation}}
         source={require('../../assets/LogoCruasemFundo.png')}
-      />
-
-      <Animated.View style={{...styles.InputLeft, marginLeft: leftPosition}}>
+        />
+        <Animated.View style={{...styles.InputLeft, marginLeft: leftPosition}}>
         <Icons
           style={styles.iconInputPosition}
           size={25}
-          color={'rgba(165, 165, 165, 0.7)'}
+          color={'rgba(165, 165, 165, 0.9)'}
           name={!estado ? 'mail' : 'user'}
         />
         <InputComponent
@@ -97,7 +99,7 @@ export default function Auth() {
         <Icons
           style={styles.iconInputPosition}
           size={25}
-          color={'rgba(165, 165, 165, 0.5)'}
+          color={'rgba(165, 165, 165, 0.9)'}
           name={!estado ? 'lock' : 'mail'}
         />
         <InputComponent
@@ -109,7 +111,7 @@ export default function Auth() {
         />
         {!estado && (
         <TouchableOpacity
-        style={{flex:1 , justifyContent:'center', marginTop:13, alignItems:'center', position:'absolute', right:'20%', top:'35%'}}
+        style={{flex:1 , justifyContent:'center', marginTop:13, alignItems:'center', position:'absolute', right:'20%', top:'35%', zIndex: 99}}
           onPress={changePasswordVisibility}>
             <Icons color={'#aaa'} size={20} name={showPassWord ? 'eye' : 'eye-off'}/>
         </TouchableOpacity>
@@ -127,7 +129,7 @@ export default function Auth() {
             <Icons
               style={styles.iconInputPosition}
               size={25}
-              color={'rgba(165, 165, 165, 0.5)'}
+              color={'rgba(165, 165, 165, 0.9)'}
               name="lock"
             />
             <InputComponent
@@ -147,7 +149,7 @@ export default function Auth() {
             <Icons
               style={styles.iconInputPosition}
               size={25}
-              color={'rgba(165, 165, 165, 0.5)'}
+              color={'rgba(165, 165, 165, 0.9)'}
               name="lock"
             />
             <InputComponent
@@ -191,6 +193,8 @@ export default function Auth() {
         </Animated.View>
       )}
 
+      
+
       <Animated.View
         style={{width: '100%', marginRight: -100, marginLeft: leftPosition}}>
         <BtnEnter onPress={registrar}>
@@ -205,6 +209,19 @@ export default function Auth() {
           </TextWhite>
         </BtnEnter>
       </Animated.View>
+
+      {
+        !estado && (
+      <Animated.View
+        style={{width: '100%',marginLeft: 160, marginTop:10,marginRight: rightPosition}}>
+        <BtnInvisibleBorder onPress={visitUser}>
+          <TextWhite>
+            Entrar como Visitante
+          </TextWhite>
+        </BtnInvisibleBorder>
+      </Animated.View>
+        )
+      }
 
       <Animated.View
         style={{width: '100%', marginLeft: 160, marginRight: rightPosition}}>
@@ -252,7 +269,6 @@ export default function Auth() {
 
       {!estado && (
         <TouchableOpacity
-          onPress={() => navigation.navigate('eu')}
           style={{position: 'absolute', bottom: 20}}>
           <Text style={{color: '#aaa'}}>
             Desenvolvido com carinho por @Breno Nascimento
@@ -260,6 +276,7 @@ export default function Auth() {
         </TouchableOpacity>
       )}
     </Background>
+  </View>
   );
 }
 
@@ -268,12 +285,14 @@ export const styles = StyleSheet.create({
     width: '100%',
     flexDirection: 'row',
     marginLeft: '15%',
+    zIndex:1,
     alignItems: 'center',
   },
   inputRight: {
     alignItems: 'center',
     width: '100%',
     flexDirection: 'row',
+    zIndex:1,
     marginLeft: '15%',
   },
   iconInputPosition: {
@@ -281,9 +300,18 @@ export const styles = StyleSheet.create({
     top: 45,
     marginLeft: -5,
     marginTop: -13,
+    zIndex:1,
   },
   logoImage: {
     height: 100,
+    zIndex:1,
     marginBottom: -20,
   },
+  blackBeckgound: {
+    backgroundColor: 'rgba(0,0,0,0.3)',
+    width: '100%',
+    height: '100%',
+    position: 'absolute',
+    zIndex: 0,
+  }
 });
