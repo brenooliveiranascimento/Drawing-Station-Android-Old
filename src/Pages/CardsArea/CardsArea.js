@@ -1,5 +1,5 @@
 import React, { useContext, useState } from 'react';
-import { ScrollView } from 'react-native';
+import { ScrollView, View } from 'react-native';
 import CardExercices from '../../components/CardExercices/CardExercices';
 import { AuthContext } from '../../Contexts';
 import { CardsContainer } from '../Home/HomeStyles';
@@ -21,6 +21,8 @@ function CardsArea() {
     return (
       <BackGround
         source={require('../../assets/novosFUndos/layered-waves-haikei.png')}>
+        <View
+        style={{backgroundColor:"rgba(0,0,0,0.3)", flex:1}}>
           <Header/>
           <CardMessage navegador={navigation}/>
           <ProgressBar/>
@@ -33,6 +35,7 @@ function CardsArea() {
                     updateModal={setShowModal}/>
             </CardsContainer>
           </ScrollView>
+          </View>
           <Modal
           animationType="slide"
           visible={showModal}

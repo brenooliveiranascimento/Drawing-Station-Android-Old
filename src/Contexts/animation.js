@@ -113,7 +113,18 @@ function loadingAnimation() {
       }
     ),
   ]).start()
-  setTimeout(() => changeState('loading'), 1000)
+  setTimeout(() => enterLogo('loading'), 1000)
+}
+
+const enterLogo = () => {
+  Animated.sequence([
+    Animated.timing(
+      logoAnimation,{
+        toValue: 300,
+        duration:300,
+      }
+    ),
+  ]).start()
 }
 
 function changeState(bool) {
