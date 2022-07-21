@@ -1,4 +1,4 @@
-import React, {useState, useContext} from 'react';
+import React, {useState, useContext, useLayoutEffect, useCallback} from 'react';
 import {
   View,
   Text,
@@ -37,10 +37,20 @@ export default function Auth() {
     logoAnimation,
     exitAnimation,
     changeState,
+    callAnimation,
     estado,
+    enterLogo
   } = useContext(AnimationContext);
 
   const navigation = useNavigation();
+
+  useLayoutEffect(
+    useCallback(() => {
+      setTimeout(() =>{
+        callAnimation()
+      }, 400)
+    })
+  )
 
   function registrar() {
     if (!estado) {
@@ -111,7 +121,7 @@ export default function Auth() {
         />
         {!estado && (
         <TouchableOpacity
-        style={{flex:1 , justifyContent:'center', marginTop:13, alignItems:'center', position:'absolute', right:'20%', top:'35%', zIndex: 99}}
+        style={{flex:1 , justifyContent:'center', marginTop:13, alignItems:'center', position:'absolute', right:'20%', top:'35%', zIndex: 9999}}
           onPress={changePasswordVisibility}>
             <Icons color={'#aaa'} size={20} name={showPassWord ? 'eye' : 'eye-off'}/>
         </TouchableOpacity>
@@ -138,7 +148,7 @@ export default function Auth() {
               placeholder="Senha"
             />
             <TouchableOpacity
-            style={{flex:1, justifyContent:'center', marginTop:13, alignItems:'center', position:'absolute', right:'20%', top:'35%'}}
+            style={{flex:1, justifyContent:'center', marginTop:13, alignItems:'center', position:'absolute', right:'20%', top:'35%', zIndex: 9999}}
               onPress={changePasswordVisibility}>
                 <Icons color={'#aaa'} size={20} name={showPassWord ? 'eye' : 'eye-off'}/>
             </TouchableOpacity>

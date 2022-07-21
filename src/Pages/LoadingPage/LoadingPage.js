@@ -9,13 +9,15 @@ export default function LoadingPage() {
     logoAnimation,
     loadingAnimation,
     callAnimation,
+    logoView
   } = useContext(AnimationContext);
   useLayoutEffect(
     useCallback(() => {
-      callAnimation()
+      logoView()
       setTimeout(() => {
         loadingAnimation()
       }, 4000)
+      // setTimeout(() =>callAnimation(), 5500)
     })
   )
  return (
@@ -31,11 +33,11 @@ export default function LoadingPage() {
         source={require('../../Lottie/animationData.json')}
         autoPlay
       />
-        <LottieView
+        {/* <LottieView
         style={{width: 150, marginTop:-80}}
         source={require('../../Lottie/lf30_editor_0ktlr6ix.json')}
         autoPlay
-      />
+      /> */}
    </Background>
   );
 }
