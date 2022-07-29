@@ -20,7 +20,7 @@ function CardsArea() {
 
     return (
       <BackGround
-        source={require('../../assets/novosFUndos/layered-waves-haikei.png')}>
+        source={require('../../assets/novosFUndos/Back.png')}>
         <View
         style={{backgroundColor:"rgba(0,0,0,0.3)", flex:1}}>
           <Header/>

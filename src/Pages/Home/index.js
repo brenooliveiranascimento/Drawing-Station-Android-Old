@@ -12,7 +12,7 @@ function Home(){
   const [showModal, setShowModal] = useState(false);
     return (
       <BackGround
-      source={require('../../assets/novosFUndos/layered-waves-haikei.png')}>
+      source={require('../../assets/novosFUndos/Back.png')}>
       <View
         style={{backgroundColor:"rgba(0,0,0,0.4)", flex:1}}>
         <UserArea/>

@@ -1,28 +1,22 @@
 import React, { useContext, useLayoutEffect, useCallback } from 'react';
 import { Background } from '../../StylesGerais';
-import { Image, Animated } from 'react-native';
+import { Animated } from 'react-native';
 import LottieView from 'lottie-react-native';
 import { AnimationContext } from '../../Contexts/animation';
 
 export default function LoadingPage() {
   const {
     logoAnimation,
-    loadingAnimation,
-    callAnimation,
     logoView
   } = useContext(AnimationContext);
   useLayoutEffect(
     useCallback(() => {
       logoView()
-      setTimeout(() => {
-        loadingAnimation()
-      }, 4000)
-      // setTimeout(() =>callAnimation(), 5500)
     })
   )
  return (
    <Background
-    source={require('../../assets/novosFUndos/layered-waves-haikei.png')}
+    source={require('../../assets/novosFUndos/Back.png')}
    >
      <Animated.Image
         style={{width: logoAnimation, height: 100}}

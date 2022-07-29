@@ -39,7 +39,6 @@ export default function Auth() {
     changeState,
     callAnimation,
     estado,
-    enterLogo
   } = useContext(AnimationContext);
 
   const navigation = useNavigation();
@@ -85,7 +84,7 @@ export default function Auth() {
       style={{backgroundColor:"rgba(0,0,0,0.4)", flex:1}}>
     <Background
     style={{flex: 1, height: '100%', zIndex: 1}}
-    source={require('../../assets/novosFUndos/layered-waves-haikei.png')}>
+    source={require('../../assets/novosFUndos/Back.png')}>
       <Animated.Image
         style={{...styles.logoImage, width: logoAnimation}}
         source={require('../../assets/LogoCruasemFundo.png')}
