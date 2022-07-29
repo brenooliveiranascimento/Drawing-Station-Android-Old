@@ -30,6 +30,26 @@ export default function AnimationProvider({children}) {
     ]).start()
   }
 
+  function moveEntry(f) {
+    Animated.sequence([
+      Animated.timing(
+        moveHome,{
+          toValue:0,
+          duration:300
+        }
+      ),
+      Animated.timing(
+        moveHome,{
+          toValue:10,
+          duration:200
+        }
+      )
+    ]).start()
+    setTimeout(() => {
+      changeHomeState(f)
+    } , 200)
+  }
+
   
   function exitAnimation() {
     Animated.timing(
@@ -252,6 +272,7 @@ function changeHomeState(f) {
       loadingAnimation,
       logoView,
       isOpen
+
     }}
     >
       {children}

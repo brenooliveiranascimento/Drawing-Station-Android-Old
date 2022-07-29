@@ -1,22 +1,22 @@
-
-
-
-
 <img src="https://user-images.githubusercontent.com/94801880/155900358-e86ee9b7-960d-4861-80fd-aa44d264d24e.png" width=300, align="center"/>
 
 
 ### <h1>Drawing Station<h1/> 
 Uma plataforma de curso de desenho realista.
+
+### <h1>Atualmente sendo refatorado com Redux<h1>
+<h2><a href="https://play.google.com/store/apps/details?id=com.drawingstation">Download do App</a><h2>
+
   
-<img src="https://user-images.githubusercontent.com/94801880/155900387-f122e2e4-d18d-45fe-a6e8-c2a19d53db6a.gif" width=600>
-<img src="https://user-images.githubusercontent.com/94801880/155900483-55b28658-6a62-4478-abe5-fd8bd556f082.gif" width=600>
+<img src="https://user-images.githubusercontent.com/94801880/176781072-f9e9ac86-1c56-40a8-b1c2-6e68f7e919fa.png" width=600>
+<img src="https://user-images.githubusercontent.com/94801880/176781449-fbafd577-6cc7-4c34-a952-7710a96ebb63.png" width=600>
   
   
  
   ### <h1>Aprendizado<h1>
   Neste Projeto fui capaz de:
   - Criar um sistema de login e cadastro com Firebase e React Native
-  - Consumo e atualização de banco de dados
+  - Consumo e atualização em um banco de dados
   - criar um sistema de contexto para compartilhar informações em diferentes componentes
   - criar um sistema de persistencia de dados do usuário utilizando Async Storage
   - criar um sistema de upload e consumo de imagens no banco de dados
@@ -36,6 +36,3 @@ Smartphone Version:
 <a href="https://styled-components.com/"><img src="https://user-images.githubusercontent.com/94801880/152538254-c2893779-4869-4474-9997-96ad488c6ae7.png" width=90></a>
   
   ### - PROJETO EM DESENVOLVIMENTO!
-  
-
-  

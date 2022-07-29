@@ -14,12 +14,16 @@ export const Name = styled.Text`
   margin-top: -30px;
 `;
 
-export const MaterialArea = styled.TouchableOpacity`
-  flex-direction: row;
-  margin-top: 5px;
+export const MaterialArea = styled.View`
+  
 `;
 
 export const MaterialText = styled.Text`
   font-size: 15px;
   color:#aaa;
+`;
+
+export const MaterialAreaBtn = styled.TouchableOpacity`
+  flex-direction: row;
+  margin-top: 5px;
 `;
