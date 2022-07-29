@@ -14,7 +14,7 @@ function Exercicios() {
 
   return (
     <BackgroundExercice
-    source={require('../../../src/assets/BackgroundDesfoque.png')}>
+    source={require('../../../src/assets/novosFUndos/BackInvertido.png')}>
       <View
         style={{backgroundColor:"rgba(0,0,0,0.4)", flex:1}}>
         <Header/>
