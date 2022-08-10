@@ -4,12 +4,12 @@
 ### <h1>Drawing Station<h1/> 
 Uma plataforma de curso de desenho realista.
 
-### <h1>Atualmente sendo refatorado com Redux<h1>
+### <h1>Atualmente sendo refatorado com TypeScript e Redux<h1>
 <h2><a href="https://play.google.com/store/apps/details?id=com.drawingstation">Download do App</a><h2>
 
   
-<img src="https://user-images.githubusercontent.com/94801880/176781072-f9e9ac86-1c56-40a8-b1c2-6e68f7e919fa.png" width=600>
-<img src="https://user-images.githubusercontent.com/94801880/176781449-fbafd577-6cc7-4c34-a952-7710a96ebb63.png" width=600>
+<img src="https://user-images.githubusercontent.com/94801880/183793766-13b03fca-e561-43f4-ac83-d3ea59afc839.jpg" width=600>
+<img src="https://user-images.githubusercontent.com/94801880/183793794-beac85f0-4797-4fc1-b477-0812ed8135f5.jpg" width=600>
   
   
  
